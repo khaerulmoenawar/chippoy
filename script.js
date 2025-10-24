@@ -538,10 +538,10 @@ function updateCountdown() {
     const now = new Date();
     const diff = now - startDate;
     
-    // Calculate time units
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    // Calculate time units correctly
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
@@ -565,10 +565,6 @@ function updateCountdown() {
 // Update the countdown every second
 setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
-
-// Start countdown interval
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
 // Initialize features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -1116,3 +1112,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
