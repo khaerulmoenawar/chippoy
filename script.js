@@ -583,12 +583,26 @@ function updateCountdown() {
     if (elHours) elHours.textContent = hours;
     if (elMinutes) elMinutes.textContent = minutes;
     if (elSeconds) elSeconds.textContent = seconds;
+    
+    console.log(`Time elapsed: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
 }
 
-// Update the countdown every second
-setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call
+// Make sure the function is available globally and starts when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Update immediately
+    updateCountdown();
+    
+    // Then update every second
+    setInterval(updateCountdown, 1000);
+});
 
+// Also call it directly in case DOM is already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCountdown);
+} else {
+    updateCountdown();
+}
+setInterval(updateCountdown, 1000);
 
 // Initialize features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -1136,6 +1150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
