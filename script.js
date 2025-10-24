@@ -531,57 +531,63 @@ function checkVisibility() {
     }
 }
 
-<!-- HTML structure -->
-<div>
-  <span id="years"></span> years,
-  <span id="months"></span> months,
-  <span id="days"></span> days,
-  <span id="hours"></span> hours,
-  <span id="minutes"></span> minutes,
-  <span id="seconds"></span> seconds
-</div>
-
-<script>
+// Countdown timer starting from November 2, 2023 WIB (Western Indonesian Time)
 function updateCountdown() {
-  // Start date: November 2, 2023, 00:00:00 WIB (+07:00)
-  const startDate = new Date('2023-11-02T00:00:00+07:00');
-  const now = new Date();
-
-  // Get the time difference in milliseconds
-  const diff = now - startDate;
-
-  if (diff < 0) {
-    // If the date hasn't happened yet
-    console.log("Countdown hasn't started yet.");
-    return;
-  }
-
-  // Convert milliseconds to readable units
-  const totalSeconds = Math.floor(diff / 1000);
-  const totalMinutes = Math.floor(totalSeconds / 60);
-  const totalHours = Math.floor(totalMinutes / 60);
-  const totalDays = Math.floor(totalHours / 24);
-
-  const years = Math.floor(totalDays / 365);
-  const months = Math.floor((totalDays % 365) / 30);
-  const days = Math.floor((totalDays % 365) % 30);
-  const hours = totalHours % 24;
-  const minutes = totalMinutes % 60;
-  const seconds = totalSeconds % 60;
-
-  // Update DOM elements
-  document.getElementById('years').textContent = years;
-  document.getElementById('months').textContent = months;
-  document.getElementById('days').textContent = days;
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
+    const startDate = new Date('2023-11-02T00:00:00+07:00'); // November 2, 2023 in WIB timezone
+    
+    const now = new Date();
+    
+    // Calculate years
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+    let hours = now.getHours() - startDate.getHours();
+    let minutes = now.getMinutes() - startDate.getMinutes();
+    let seconds = now.getSeconds() - startDate.getSeconds();
+    
+    // Adjust for negative values
+    if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+    }
+    if (minutes < 0) {
+        minutes += 60;
+        hours--;
+    }
+    if (hours < 0) {
+        hours += 24;
+        days--;
+    }
+    if (days < 0) {
+        // Get days in previous month
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+    }
+    if (months < 0) {
+        months += 12;
+        years--;
+    }
+    
+    // Update DOM elements if they exist
+    const elYears = document.getElementById('years');
+    const elMonths = document.getElementById('months');
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+    
+    if (elYears) elYears.textContent = years;
+    if (elMonths) elMonths.textContent = months;
+    if (elDays) elDays.textContent = days;
+    if (elHours) elHours.textContent = hours;
+    if (elMinutes) elMinutes.textContent = minutes;
+    if (elSeconds) elSeconds.textContent = seconds;
 }
 
 // Update the countdown every second
 setInterval(updateCountdown, 1000);
-updateCountdown(); // Run once on load
-</script>
+updateCountdown(); // Initial call
 
 
 // Initialize features when DOM is ready
@@ -1130,5 +1136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
