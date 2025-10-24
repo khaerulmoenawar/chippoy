@@ -531,9 +531,9 @@ function checkVisibility() {
     }
 }
 
-// Countdown timer starting from November 2, 2023
+// Countdown timer starting from November 2, 2023 WIB (Western Indonesian Time)
 function updateCountdown() {
-    const startDate = new Date('2023-11-02T00:00:00'); // Your first romantic day
+    const startDate = new Date('2023-11-02T00:00:00+07:00'); // November 2, 2023 in WIB timezone
     
     const now = new Date();
     const diff = now - startDate;
@@ -561,6 +561,10 @@ function updateCountdown() {
     if (elMinutes) elMinutes.textContent = minutes;
     if (elSeconds) elSeconds.textContent = seconds;
 }
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
 
 // Start countdown interval
 updateCountdown();
@@ -1110,4 +1114,5 @@ document.addEventListener('DOMContentLoaded', () => {
         fonts.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap';
         document.head.appendChild(fonts);
     }, {once:true});
+
 })();
