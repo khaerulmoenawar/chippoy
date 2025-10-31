@@ -11,7 +11,7 @@ const memoryDetails = {
     'christmas': {
         title: 'My Birthday Celebration at the Aquarium',
         content: `
-            <p>December 7, 2023 became our own personal festival of joy as we celebrated my birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
+            <p>December 5, 2023 (the day is December 7th honestly) became our own personal festival of joy as we celebrated my birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
             <p>I'll never forget the priceless moment you gifted me that analog camera - and how we managed to ruin the film roll in the most hilariously typical us fashion that very same day! That became our most extravagantly wonderful date, filled with laughter that echoed through the ocean tunnels.</p>
             <p>Our first and only motorcycle adventure through Jakarta's chaotic streets, though utterly exhausting, became our romantic comedy - two souls navigating the city's heartbeat while finding our rhythm together. That day taught me that the most precious gifts are the memories we create, not the things we possess.</p>
         `
@@ -20,23 +20,23 @@ const memoryDetails = {
         title: 'Our First Cafe Sanctuary in Bogor',
         content: `
             <p>February 7, 2024 marked our discovery of what would become our sacred space - Jiwan Cafe. That first visit felt like uncovering a hidden gem where time slowed down just for us, where every corner seemed designed for whispered secrets and shared dreams.</p>
-            <p>I remember the warmth of our hands clasped across the table, the way the afternoon light painted your features, and how our conversations flowed as smoothly as the coffee we enjoyed. In that cozy sanctuary, we built another layer of our story.</p>
+            <p>I remember the warmth of our hands clasped across the table, the way the afternoon light painted your features, and how our conversations flowed as smoothly as the drink we enjoyed. In that cozy sanctuary, we built another layer of our story.</p>
             <p>That cafe became more than just a place - it transformed into the backdrop of our growing love, witness to our laughter, our dreams, and the quiet comfort of simply being together. Every visit since has felt like adding another beautiful chapter to our ongoing romance.</p>
         `
     },
     'trip': {
         title: 'Your First Birthday Celebration as My Love',
         content: `
-            <p>July 29, 2024 became a testament to love's creativity when resources were scarce but affection overflowed. Your first birthday celebration during our relationship challenged me to find magic in simplicity, and what emerged was more beautiful than any store-bought gift.</p>
+            <p>July 28, 2024 (well 29 July to be precised) became a testament to love's creativity when resources were scarce but affection overflowed. Your first birthday celebration during our relationship challenged me to find magic in simplicity, and what emerged was more beautiful than any store-bought gift.</p>
             <p>The cake that my mother and sister baked with such heartfelt effort - though not quite bakery-perfect - represented something purer: the welcoming of you into our family fold. Their slightly lopsided creation became a symbol of how many hearts you had touched.</p>
-            <p>Our adventure at Bogor Botanical Gardens, punctuated by sudden rain showers that we danced through rather than躲避, became our liquid sunshine memory. Getting drenched together felt like nature's blessing on our journey, washing us clean for the beautiful year ahead.</p>
+            <p>Our adventure at Bogor Botanical Gardens, punctuated by sudden rain showers that we have to wait there until the rain stopped, became our liquid sunshine memory. Getting drenched together felt like nature's blessing on our journey, washing us clean for the beautiful year ahead.</p>
         `
     },
     'one-year': {
         title: 'Our Graduation Day & Family Encounters',
         content: `
             <p>September 19, 2024 marked not just our academic achievement but the beautiful merging of our worlds. As we stood there in our graduation gowns, we were celebrating more than degrees - we were honoring the journey we had navigated together.</p>
-            <p>The profound moment you met my mother, and I yours, felt like the official weaving of our lives together. These weren't just first meetings; they were the beginning of family bonds that would strengthen and grow alongside our love.</p>
+            <p>The profound moment you met my families, and I first met you mother, felt like the official weaving of our lives together. These weren't just first meetings; they were the beginning of family bonds that would strengthen and grow alongside our love.</p>
             <p>That day symbolized how far we had come - not just as individuals pursuing dreams, but as partners building a future. Our families' proud smiles reflected the joy we had found in each other, making the achievement doubly sweet.</p>
         `
     },
@@ -1152,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
