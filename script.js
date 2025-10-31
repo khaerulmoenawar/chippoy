@@ -52,7 +52,7 @@ const memoryDetails = {
         title: 'Growing Through Distance - Our Separate Battles',
         content: `
             <p>Our second year unfolded differently than our passionate first - it became a season of quiet support and individual growth. While I navigated the turbulent waters of career searching, you embarked on your own challenging quest for scholarship opportunities abroad.</p>
-            <p>The distance between us grew not just emotionally but physically, with fewer meetings and simpler conversations. Yet, in that space, we discovered a new depth to our love - one that didn't need constant drama or grand gestures to survive. Our support became subtler but no less profound: late-night texts of encouragement, understanding when plans changed, and celebrating small victories together.</p>
+            <p>The distance between us grew not just emotionally but physically, with fewer meetings and simpler conversations. Yet, in that space, we discovered a new depth to our love - one that didn't need constant drama or grand gestures to survive. Our support became subtler but no less profound: late-night video calls of encouragement, understanding when plans changed, and celebrating small victories together or even us doing our own things but still spend it together.</p>
             <p>I'll always cherish our first movie date during this period - a simple evening that felt like an oasis in our busy lives. Sitting there in the dark theater, your hand in mine, we forgot about resumes and applications and just existed together. The shared laughter during the comedy scenes and the comfortable silence during the dramatic moments reminded me that despite our separate struggles, we were still very much together in what mattered most.</p>
             <p>This chapter taught us that love isn't always about being in the same place physically or even emotionally every moment. Sometimes, it's about trusting that the other person is fighting their own battles while still holding space for you in their heart. Our separate journeys didn't pull us apart; they showed us that our bond could withstand the pressure of real-world challenges.</p>
             <p>Through job rejections and scholarship applications, through quiet weeks and brief meetings, we learned to love each other not just in the grand romantic moments, but in the mundane, difficult spaces of adult life. And somehow, that felt even more meaningful than all the dramatic declarations of our first year.</p>
@@ -1170,6 +1170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
