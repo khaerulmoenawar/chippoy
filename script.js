@@ -43,7 +43,7 @@ const memoryDetails = {
     'today': {
         title: 'Two Years of Growing Together',
         content: `
-            <p>Today, as we celebrate two years together, my heart overflows with gratitude for every sunrise we've witnessed as partners. These 730 days have been a beautiful tapestry woven with threads of growth, understanding, and ever-deepening love.</p>
+            <p>Today, as we celebrate two years together, my heart overflows with gratitude for every sunrise we've witnessed as partners. These 731 days have been a beautiful tapestry woven with threads of growth, understanding, and ever-deepening love.</p>
             <p>This second year has brought a different rhythm to our relationship - fewer dramatic storms, but new opportunities for growth. Though we've spent less physical time together than in our passionate first year, this has become our unexpected blessing.</p>
             <p>The distance has taught us that love isn't measured by constant proximity, but by the unwavering connection that survives separation. It has proven that our bond can evolve, adapt, and strengthen through changing circumstances.</p>
             <p>We've learned that love matures not by eliminating challenges, but by facing them with wisdom earned from our history together. The improvements we continue to make aren't repairs to something broken, but enhancements to something already beautiful.</p>
@@ -1152,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
