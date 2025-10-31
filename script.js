@@ -9,9 +9,9 @@ const memoryDetails = {
         `
     },
     'christmas': {
-        title: 'Your Birthday Celebration at the Aquarium',
+        title: 'My Birthday Celebration at the Aquarium',
         content: `
-            <p>December 7, 2023 became our own personal festival of joy as we celebrated your birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
+            <p>December 7, 2023 became our own personal festival of joy as we celebrated my birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
             <p>I'll never forget the priceless moment you gifted me that analog camera - and how we managed to ruin the film roll in the most hilariously typical us fashion that very same day! That became our most extravagantly wonderful date, filled with laughter that echoed through the ocean tunnels.</p>
             <p>Our first and only motorcycle adventure through Jakarta's chaotic streets, though utterly exhausting, became our romantic comedy - two souls navigating the city's heartbeat while finding our rhythm together. That day taught me that the most precious gifts are the memories we create, not the things we possess.</p>
         `
@@ -1152,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
