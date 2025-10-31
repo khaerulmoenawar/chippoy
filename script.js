@@ -8,7 +8,7 @@ const memoryDetails = {
             <p>Walking together as dusk settled around us, I realized I had found not just someone special, but my person. The connection we discovered that evening felt like coming home to a place I never knew existed, yet had been searching for my entire life.</p>
         `
     },
-    'christmas': {
+    'my-birthday': {
         title: 'My Birthday Celebration at the Aquarium',
         content: `
             <p>December 5, 2023 (the day is December 7th honestly) became our own personal festival of joy as we celebrated my birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
@@ -16,7 +16,7 @@ const memoryDetails = {
             <p>Our first and only motorcycle adventure through Jakarta's chaotic streets, though utterly exhausting, became our romantic comedy - two souls navigating the city's heartbeat while finding our rhythm together. That day taught me that the most precious gifts are the memories we create, not the things we possess.</p>
         `
     },
-    'valentines': {
+    'our-cafe-spot': {
         title: 'Our First Cafe Sanctuary in Bogor',
         content: `
             <p>February 7, 2024 marked our discovery of what would become our sacred space - Jiwan Cafe. That first visit felt like uncovering a hidden gem where time slowed down just for us, where every corner seemed designed for whispered secrets and shared dreams.</p>
@@ -24,7 +24,7 @@ const memoryDetails = {
             <p>That cafe became more than just a place - it transformed into the backdrop of our growing love, witness to our laughter, our dreams, and the quiet comfort of simply being together. Every visit since has felt like adding another beautiful chapter to our ongoing romance.</p>
         `
     },
-    'trip': {
+    'your-birthday': {
         title: 'Your First Birthday Celebration as My Love',
         content: `
             <p>July 28, 2024 (well 29 July to be precised) became a testament to love's creativity when resources were scarce but affection overflowed. Your first birthday celebration during our relationship challenged me to find magic in simplicity, and what emerged was more beautiful than any store-bought gift.</p>
@@ -32,12 +32,20 @@ const memoryDetails = {
             <p>Our adventure at Bogor Botanical Gardens, punctuated by sudden rain showers that we have to wait there until the rain stopped, became our liquid sunshine memory. Getting drenched together felt like nature's blessing on our journey, washing us clean for the beautiful year ahead.</p>
         `
     },
-    'one-year': {
+    'our-graduation': {
         title: 'Our Graduation Day & Family Encounters',
         content: `
             <p>September 19, 2024 marked not just our academic achievement but the beautiful merging of our worlds. As we stood there in our graduation gowns, we were celebrating more than degrees - we were honoring the journey we had navigated together.</p>
             <p>The profound moment you met my families, and I first met you mother, felt like the official weaving of our lives together. These weren't just first meetings; they were the beginning of family bonds that would strengthen and grow alongside our love.</p>
             <p>That day symbolized how far we had come - not just as individuals pursuing dreams, but as partners building a future. Our families' proud smiles reflected the joy we had found in each other, making the achievement doubly sweet.</p>
+        `
+    },
+    'one-year': {
+        title: 'One Year Anniversary - Surviving and Thriving',
+        content: `
+            <p>November 2, 2024 marked our first anniversary - a milestone that proved our love could withstand any storm. Looking back on those 366 days, I marveled at how we navigated emotional rollercoasters, survived near-breakups, and emerged stronger than ever.</p>
+            <p>Our journey through that first year was like a dramatic novel filled with intense emotions, passionate reconciliations, and hard-won understanding. The challenges we faced didn't break us; they forged our bond in fire, teaching us the depth of our commitment to each other.</p>
+            <p>Amidst all the emotional turbulence, we somehow managed to achieve our academic goals together, proving that our love could be both our greatest challenge and our strongest motivation. That first anniversary wasn't just about celebrating time - it was about honoring the resilience we built and the love that refused to give up, even when things got tough.</p>
         `
     },
     'today': {
@@ -1152,6 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
