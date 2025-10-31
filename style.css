@@ -647,6 +647,19 @@ section.visible {
     font-family: 'Playfair Display', serif;
 }
 
+.memory-item[data-memory="second-year"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.memory-item[data-memory="second-year"] .memory-content {
+    border-left: 4px solid #764ba2;
+}
+
+.memory-item[data-memory="second-year"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.3);
+}
+
 /* Promise Section */
 .promises {
     display: grid;
@@ -1136,4 +1149,5 @@ footer {
     .love-notes, .promises {
         grid-template-columns: 1fr;
     }
+
 }
