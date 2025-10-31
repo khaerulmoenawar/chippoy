@@ -1,51 +1,53 @@
 // Memory details for popups
 const memoryDetails = {
     'first-date': {
-        title: 'Our First Romantic Day',
+        title: 'The Beginning of Our Love Story',
         content: `
-            <p>November 2, 2023 will forever be etched in my heart as the day our beautiful journey began. I remember the butterflies in my stomach as I got ready to meet you, not knowing that this day would change my life forever.</p>
-            <p>We spent hours talking, laughing, and discovering each other's souls. The way your eyes lit up when you talked about your passions, the gentle sound of your laughter, and the comfort I felt in your presence - it all felt so right.</p>
-            <p>That evening, as we walked under the stars, I knew I had found someone truly special. The connection we shared was undeniable, and I went home that night with a heart full of hope and excitement for what was to come.</p>
+            <p>November 2, 2023 will forever be the day our beautiful love story began. I remember the mix of nervous excitement and anticipation as I prepared to meet you, little knowing this evening would become the foundation of our forever.</p>
+            <p>That magical afternoon at GBK Urban Forest witnessed the start of something extraordinary. As the golden hour embraced us, we found ourselves opening our hearts beneath the canopy of trees. The way your smile caught the fading sunlight, the gentle rhythm of our conversation, and the unspoken understanding that grew between us - every moment felt like destiny unfolding.</p>
+            <p>Walking together as dusk settled around us, I realized I had found not just someone special, but my person. The connection we discovered that evening felt like coming home to a place I never knew existed, yet had been searching for my entire life.</p>
         `
     },
     'christmas': {
-        title: 'First Christmas Together',
+        title: 'Your Birthday Celebration at the Aquarium',
         content: `
-            <p>Our first Christmas together was nothing short of magical. The twinkling lights, the warmth of the fireplace, and the joy of experiencing the holiday season with you created memories I'll cherish forever.</p>
-            <p>I'll never forget the thoughtful gifts we exchanged - not just material things, but the promises and dreams we shared. The way your face lit up when you opened my present reminded me of the pure, childlike joy that love can bring.</p>
-            <p>That Christmas taught me that the greatest gift isn't something you can wrap in paper - it's having you by my side, sharing laughter, warmth, and creating traditions that would last a lifetime.</p>
+            <p>December 7, 2023 became our own personal festival of joy as we celebrated your birthday in the most magical way possible. The aquarium transformed into our underwater wonderland, where colorful fish danced around us like living confetti celebrating your special day.</p>
+            <p>I'll never forget the priceless moment you gifted me that analog camera - and how we managed to ruin the film roll in the most hilariously typical us fashion that very same day! That became our most extravagantly wonderful date, filled with laughter that echoed through the ocean tunnels.</p>
+            <p>Our first and only motorcycle adventure through Jakarta's chaotic streets, though utterly exhausting, became our romantic comedy - two souls navigating the city's heartbeat while finding our rhythm together. That day taught me that the most precious gifts are the memories we create, not the things we possess.</p>
         `
     },
     'valentines': {
-        title: 'Our First Valentine\'s Day',
+        title: 'Our First Cafe Sanctuary in Bogor',
         content: `
-            <p>Our first Valentine's Day was a celebration of the love that had blossomed between us over the past few months. The careful planning, the romantic gestures, and the sheer effort you put into making the day special touched my heart deeply.</p>
-            <p>I remember the beautiful dinner, the heartfelt card you wrote, and the way you looked at me across the table. In that moment, surrounded by candlelight and romance, I felt like the luckiest person in the world.</p>
-            <p>That Valentine's Day wasn't just about roses and chocolates - it was a testament to the beautiful connection we share and the commitment we were building together, one precious moment at a time.</p>
+            <p>February 7, 2024 marked our discovery of what would become our sacred space - Jiwan Cafe. That first visit felt like uncovering a hidden gem where time slowed down just for us, where every corner seemed designed for whispered secrets and shared dreams.</p>
+            <p>I remember the warmth of our hands clasped across the table, the way the afternoon light painted your features, and how our conversations flowed as smoothly as the coffee we enjoyed. In that cozy sanctuary, we built another layer of our story.</p>
+            <p>That cafe became more than just a place - it transformed into the backdrop of our growing love, witness to our laughter, our dreams, and the quiet comfort of simply being together. Every visit since has felt like adding another beautiful chapter to our ongoing romance.</p>
         `
     },
     'trip': {
-        title: 'Our First Trip Together',
+        title: 'Your First Birthday Celebration as My Love',
         content: `
-            <p>Our first trip together was an adventure that brought us even closer. Exploring new places with you by my side made every moment special, from the breathtaking views to the simple joy of sharing meals together.</p>
-            <p>I'll always remember getting lost in that charming little town and how we turned what could have been a stressful situation into one of our fondest memories. Your calm demeanor and sense of adventure reminded me why I fell in love with you.</p>
-            <p>That trip taught me that with you, every journey is an adventure, and every destination feels like home when we're together. It solidified our bond and created memories that I'll treasure forever.</p>
+            <p>July 29, 2024 became a testament to love's creativity when resources were scarce but affection overflowed. Your first birthday celebration during our relationship challenged me to find magic in simplicity, and what emerged was more beautiful than any store-bought gift.</p>
+            <p>The cake that my mother and sister baked with such heartfelt effort - though not quite bakery-perfect - represented something purer: the welcoming of you into our family fold. Their slightly lopsided creation became a symbol of how many hearts you had touched.</p>
+            <p>Our adventure at Bogor Botanical Gardens, punctuated by sudden rain showers that we danced through rather than躲避, became our liquid sunshine memory. Getting drenched together felt like nature's blessing on our journey, washing us clean for the beautiful year ahead.</p>
         `
     },
     'one-year': {
-        title: 'One Year Anniversary',
+        title: 'Our Graduation Day & Family Encounters',
         content: `
-            <p>Celebrating our first year together was a milestone that filled my heart with gratitude and joy. Looking back on those 365 days, I was overwhelmed by how much we had grown together and how deeply our love had rooted itself in both our lives.</p>
-            <p>The way we celebrated - reminiscing about our favorite moments, laughing about our silly arguments, and dreaming about our future - made me realize how perfectly we complement each other.</p>
-            <p>That first anniversary wasn't just a celebration of time passed; it was a promise of all the beautiful years to come, a reaffirmation of the love that had become the foundation of my happiness.</p>
+            <p>September 19, 2024 marked not just our academic achievement but the beautiful merging of our worlds. As we stood there in our graduation gowns, we were celebrating more than degrees - we were honoring the journey we had navigated together.</p>
+            <p>The profound moment you met my mother, and I yours, felt like the official weaving of our lives together. These weren't just first meetings; they were the beginning of family bonds that would strengthen and grow alongside our love.</p>
+            <p>That day symbolized how far we had come - not just as individuals pursuing dreams, but as partners building a future. Our families' proud smiles reflected the joy we had found in each other, making the achievement doubly sweet.</p>
         `
     },
     'today': {
-        title: 'Two Years Together',
+        title: 'Two Years of Growing Together',
         content: `
-            <p>Today, as we celebrate two years together, I'm filled with overwhelming gratitude for every moment we've shared. These 730 days have been a beautiful journey of growth, understanding, and deepening love.</p>
-            <p>Through challenges and triumphs, laughter and tears, you've been my constant. Your unwavering support, your understanding heart, and your incredible capacity to love have made these two years the most meaningful of my life.</p>
-            <p>As I look toward our future, I do so with excitement and confidence, knowing that with you by my side, every day will be an adventure and every challenge will be faced together. Here's to us, to our love, and to all the beautiful years ahead.</p>
+            <p>Today, as we celebrate two years together, my heart overflows with gratitude for every sunrise we've witnessed as partners. These 730 days have been a beautiful tapestry woven with threads of growth, understanding, and ever-deepening love.</p>
+            <p>This second year has brought a different rhythm to our relationship - fewer dramatic storms, but new opportunities for growth. Though we've spent less physical time together than in our passionate first year, this has become our unexpected blessing.</p>
+            <p>The distance has taught us that love isn't measured by constant proximity, but by the unwavering connection that survives separation. It has proven that our bond can evolve, adapt, and strengthen through changing circumstances.</p>
+            <p>We've learned that love matures not by eliminating challenges, but by facing them with wisdom earned from our history together. The improvements we continue to make aren't repairs to something broken, but enhancements to something already beautiful.</p>
+            <p>As I look toward our future, I see not perfection, but promise - the beautiful, ongoing journey of two souls choosing each other day after day, growing together while allowing space for individual blossoming. Here's to the love that has learned, adapted, and flourished - and to all the beautiful evolution still to come.</p>
         `
     }
 };
@@ -1150,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
