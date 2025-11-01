@@ -1,4 +1,3 @@
-// Memory details for popups
 const memoryDetails = {
     'first-date': {
         title: 'The Beginning of Our Love Story',
@@ -70,7 +69,6 @@ const memoryDetails = {
     }
 };
 
-// Create floating hearts in background
 function createHearts() {
     const container = document.getElementById('heartsContainer');
     const heartCount = 50;
@@ -87,7 +85,6 @@ function createHearts() {
     }
 }
 
-// Create animated background elements
 function createAnimatedBackground() {
     const container = document.getElementById('animatedBg');
     const elementCount = 15;
@@ -105,16 +102,13 @@ function createAnimatedBackground() {
     }
 }
 
-// Theme Toggle
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
-    
-    // Check for saved theme preference or default to pink
+   
     const savedTheme = localStorage.getItem('anniversaryTheme') || 'pink';
     body.setAttribute('data-theme', savedTheme);
-    
-    // Update toggle icon based on current theme
+
     updateToggleIcon(savedTheme);
     
     themeToggle.addEventListener('click', () => {
@@ -125,8 +119,7 @@ function initThemeToggle() {
         localStorage.setItem('anniversaryTheme', newTheme);
         
         updateToggleIcon(newTheme);
-        
-        // Add a subtle animation to the toggle
+    
         themeToggle.style.transform = 'rotate(180deg)';
         setTimeout(() => {
             themeToggle.style.transform = 'rotate(0)';
@@ -143,12 +136,10 @@ function initThemeToggle() {
     }
 }
 
-// Custom cursor
 function initCustomCursor() {
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    
-    // Use requestAnimationFrame for smoother cursor movement
+
     let mouseX = 0, mouseY = 0;
     let followerX = 0, followerY = 0;
     
@@ -158,11 +149,9 @@ function initCustomCursor() {
     });
     
     function animateCursor() {
-        // Smooth movement for cursor
         cursor.style.left = mouseX + 'px';
         cursor.style.top = mouseY + 'px';
-        
-        // Smooth movement for follower with delay
+
         followerX += (mouseX - followerX) * 0.1;
         followerY += (mouseY - followerY) * 0.1;
         
@@ -176,8 +165,7 @@ function initCustomCursor() {
     
     document.addEventListener('mousedown', () => {
         cursor.classList.add('clicked');
-        
-        // Create click effect
+
         const clickEffect = document.createElement('div');
         clickEffect.classList.add('click-effect');
         clickEffect.style.left = (mouseX - 10) + 'px';
@@ -192,8 +180,7 @@ function initCustomCursor() {
     document.addEventListener('mouseup', () => {
         cursor.classList.remove('clicked');
     });
-    
-    // Change cursor on hover interactive elements
+
     const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .love-lock, .note, .promise, .memory-content');
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
@@ -206,7 +193,6 @@ function initCustomCursor() {
     });
 }
 
-// Enhanced Love Lock with Heart Confetti
 function initLoveLock() {
     const loveLock = document.getElementById('loveLock');
     let isUnlocked = false;
@@ -216,17 +202,14 @@ function initLoveLock() {
         loveLock.classList.toggle('unlocked', isUnlocked);
         
         if (isUnlocked) {
-            // Create floating hearts when unlocked
             for (let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     createFloatingHeart(loveLock);
                 }, i * 100);
             }
-            
-            // Add sparkle effect
+
             addSparkleEffect(loveLock);
-            
-            // Create heart confetti effect
+
             createHeartConfetti();
         }
     });
@@ -292,8 +275,7 @@ function initLoveLock() {
                 }, 5000);
             }, i * 100);
         }
-        
-        // Add CSS for heart confetti animation if not already added
+
         if (!document.querySelector('#heartConfettiAnimation')) {
             const style = document.createElement('style');
             style.id = 'heartConfettiAnimation';
@@ -321,8 +303,7 @@ function initLoveLock() {
         ];
         return colors[Math.floor(Math.random() * colors.length)];
     }
-    
-    // Add CSS for animations if not already added
+
     if (!document.querySelector('#floatHeartAnimation')) {
         const style = document.createElement('style');
         style.id = 'floatHeartAnimation';
@@ -352,22 +333,17 @@ function initLoveLock() {
     }
 }
 
-// Music Player with "November the 2nd" by Adhitya Sofyan - AUTOPLAY
 function initMusicPlayer() {
     const playPauseBtn = document.getElementById('playPauseBtn');
     const musicPlayer = document.getElementById('musicPlayer');
-    let isPlaying = true; // Start with playing
-    
-    // Create audio element
+    let isPlaying = true;
+
     const audio = new Audio();
-    // Using a placeholder - replace with actual song URL
     audio.src = 'November the 2nd.wav';
     audio.loop = true;
-    
-    // Autoplay the music when page loads
+
     audio.play().catch(e => {
         console.log('Autoplay prevented:', e);
-        // If autoplay is prevented, show play button instead
         isPlaying = false;
         playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
         musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Click to play';
@@ -388,15 +364,13 @@ function initMusicPlayer() {
     });
 }
 
-// Popup functionality
 function initPopups() {
     const galleryPopup = document.getElementById('galleryPopup');
     const memoryPopup = document.getElementById('memoryPopup');
     const galleryClose = document.getElementById('galleryClose');
     const memoryClose = document.getElementById('memoryClose');
     const galleryLink = document.getElementById('galleryLink');
-    
-    // Gallery popup triggers
+
     const galleryTriggers = document.querySelectorAll('.gallery-item, #galleryLink');
     galleryTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
@@ -404,8 +378,7 @@ function initPopups() {
             document.body.style.overflow = 'hidden';
         });
     });
-    
-    // Memory popup triggers
+
     const memoryTriggers = document.querySelectorAll('.memory-content');
     memoryTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
@@ -420,8 +393,7 @@ function initPopups() {
             }
         });
     });
-    
-    // Close buttons
+
     galleryClose.addEventListener('click', () => {
         galleryPopup.classList.remove('active');
         document.body.style.overflow = 'auto';
@@ -431,8 +403,7 @@ function initPopups() {
         memoryPopup.classList.remove('active');
         document.body.style.overflow = 'auto';
     });
-    
-    // Close popups when clicking outside content
+
     [galleryPopup, memoryPopup].forEach(popup => {
         popup.addEventListener('click', (e) => {
             if (e.target === popup) {
@@ -443,18 +414,15 @@ function initPopups() {
     });
 }
 
-// Typewriter effect for love letter
 function initTypewriter() {
     const typewriterElement = document.getElementById('typewriterGreeting');
     if (typewriterElement) {
-        // Reset and trigger the typewriter animation
         typewriterElement.classList.remove('typing');
-        void typewriterElement.offsetWidth; // Trigger reflow
+        void typewriterElement.offsetWidth;
         typewriterElement.classList.add('typing');
     }
 }
 
-// Scroll animations with performance optimization
 function checkVisibility() {
     const sections = document.querySelectorAll('section');
     const sectionTitles = document.querySelectorAll('.section-title');
@@ -534,14 +502,13 @@ function checkVisibility() {
         
         if (letterTop < windowHeight * 0.85) {
             loveLetter.classList.add('visible');
-            
-            // Trigger typewriter effect when love letter becomes visible
+
             initTypewriter();
             
             letterParagraphs.forEach((p, index) => {
                 setTimeout(() => {
                     p.classList.add('visible');
-                }, index * 500 + 1000); // Delay after typewriter
+                }, index * 500 + 1000);
             });
             
             setTimeout(() => {
@@ -551,21 +518,18 @@ function checkVisibility() {
     }
 }
 
-// Countdown timer starting from November 2, 2023 WIB (Western Indonesian Time)
 function updateCountdown() {
-    const startDate = new Date('2023-11-02T00:00:00+07:00'); // November 2, 2023 in WIB timezone
+    const startDate = new Date('2023-11-02T00:00:00+07:00');
     
     const now = new Date();
-    
-    // Calculate years
+
     let years = now.getFullYear() - startDate.getFullYear();
     let months = now.getMonth() - startDate.getMonth();
     let days = now.getDate() - startDate.getDate();
     let hours = now.getHours() - startDate.getHours();
     let minutes = now.getMinutes() - startDate.getMinutes();
     let seconds = now.getSeconds() - startDate.getSeconds();
-    
-    // Adjust for negative values
+
     if (seconds < 0) {
         seconds += 60;
         minutes--;
@@ -579,7 +543,6 @@ function updateCountdown() {
         days--;
     }
     if (days < 0) {
-        // Get days in previous month
         const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
         days += prevMonth.getDate();
         months--;
@@ -588,8 +551,7 @@ function updateCountdown() {
         months += 12;
         years--;
     }
-    
-    // Update DOM elements if they exist
+
     const elYears = document.getElementById('years');
     const elMonths = document.getElementById('months');
     const elDays = document.getElementById('days');
@@ -607,16 +569,12 @@ function updateCountdown() {
     console.log(`Time elapsed: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
 }
 
-// Make sure the function is available globally and starts when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Update immediately
     updateCountdown();
-    
-    // Then update every second
+
     setInterval(updateCountdown, 1000);
 });
 
-// Also call it directly in case DOM is already loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', updateCountdown);
 } else {
@@ -624,7 +582,6 @@ if (document.readyState === 'loading') {
 }
 setInterval(updateCountdown, 1000);
 
-// Initialize features when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     createHearts();
     createAnimatedBackground();
@@ -634,18 +591,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initMusicPlayer();
     initPopups();
     checkVisibility();
-    
-    // Re-run visibility checks on scroll/resize
+
     window.addEventListener('scroll', checkVisibility, { passive: true });
     window.addEventListener('resize', checkVisibility);
 });
 
-// Gallery functionality
 document.addEventListener('DOMContentLoaded', () => {
     const galleryPopup = document.getElementById('galleryPopup');
     const popupGallery = galleryPopup.querySelector('.popup-gallery');
     const galleryClose = document.getElementById('galleryClose');
-    // Use explicit asset lists (images/videos) so you can replace each URL later
     const galleryAssets = {
         galleryTrigger: [
             { type: 'image', src: 'kw1.jpg', },
@@ -698,7 +652,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'all-memories': []
     };
 
-    // Build combined list for 'all-memories' by concatenating others (once)
     (function buildAllMemories() {
         const keys = Object.keys(galleryAssets).filter(k => k !== 'all-memories');
         const combined = [];
@@ -708,7 +661,6 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryAssets['all-memories'] = combined;
     })();
 
-    // Ensure lightbox CSS exists (with smooth open/close animations)
     if (!document.getElementById('lightboxStyles')) {
         const style = document.createElement('style');
         style.id = 'lightboxStyles';
@@ -771,15 +723,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(style);
     }
 
-    // Populate popup with assets (images/videos) for given key
     function populatePopupGallery(key, count = 6) {
         popupGallery.innerHTML = '';
 
         const assets = (galleryAssets[key] && galleryAssets[key].slice()) || galleryAssets['all-memories'].slice() || [];
 
-        // If fewer assets than requested, use random placeholder images
         if (assets.length === 0) {
-            // Generate random placeholder images
             for (let i = 0; i < count; i++) {
                 assets.push({ 
                     type: 'image', 
@@ -804,7 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.style.height = '100%';
                 video.style.objectFit = 'cover';
                 video.setAttribute('aria-label', asset.alt || '');
-                // mark for lightbox
                 video.dataset.lightboxType = 'video';
                 video.dataset.lightboxSrc = asset.src;
                 item.appendChild(video);
@@ -816,7 +764,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.style.height = '100%';
                 img.style.objectFit = 'cover';
                 img.style.display = 'block';
-                // mark for lightbox
                 img.dataset.lightboxType = 'image';
                 img.dataset.lightboxSrc = asset.src;
                 item.appendChild(img);
@@ -825,17 +772,13 @@ document.addEventListener('DOMContentLoaded', () => {
             popupGallery.appendChild(item);
         });
 
-        // Attach click-to-enlarge handling (delegated)
         attachPopupItemClickHandlers();
 
-        // Small title update (optional) - shows which gallery was clicked
         const titleEl = document.getElementById('memoryPopupTitle');
         if (titleEl) titleEl.textContent = `Gallery — ${key}`;
     }
 
-    // Lightbox open/close helpers with smooth animations
     function openLightbox(type, src, alt) {
-        // prevent multiple lightboxes
         if (document.querySelector('.image-lightbox-overlay')) return;
 
         const overlay = document.createElement('div');
@@ -867,13 +810,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(overlay);
         document.body.appendChild(closeBtn);
 
-        // prevent background scroll
         document.body.style.overflow = 'hidden';
 
-        // show with smooth animation: add 'visible' in next frame
         requestAnimationFrame(() => {
             overlay.classList.add('visible');
-            // small delay to trigger media transition nicely
             requestAnimationFrame(() => {
                 media.classList.add('visible');
                 closeBtn.classList.add('visible');
@@ -881,12 +821,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function close() {
-            // start closing animation
             media.classList.remove('visible');
             closeBtn.classList.remove('visible');
             overlay.classList.remove('visible');
 
-            // wait for transition to finish, then remove
             const cleanup = () => {
                 if (overlay.parentNode) overlay.remove();
                 if (closeBtn.parentNode) closeBtn.remove();
@@ -895,7 +833,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 media.removeEventListener('transitionend', cleanup);
             };
 
-            // Use transitionend on media with a fallback timeout
             let called = false;
             const safeTimeout = setTimeout(() => {
                 if (!called) {
@@ -914,7 +851,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         overlay.addEventListener('click', (e) => {
-            // close when clicking outside media
             if (e.target === overlay) close();
         });
 
@@ -926,11 +862,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', onKey);
     }
 
-    // Add event listeners to items inside popupGallery so clicking an image/video opens lightbox
     function attachPopupItemClickHandlers() {
-        // delegated: listen once on popupGallery
         popupGallery.querySelectorAll('.popup-gallery-item img, .popup-gallery-item video').forEach(mediaEl => {
-            // ensure no duplicate listeners
             if (mediaEl.dataset.listenerAttached) return;
             mediaEl.dataset.listenerAttached = '1';
             mediaEl.style.cursor = 'zoom-in';
@@ -943,25 +876,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Open popup with images based on key
     function openGalleryForKey(key) {
         populatePopupGallery(key);
         galleryPopup.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-    // Attach capturing click listeners to override earlier generic handlers
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(el => {
         const key = el.dataset.gallery || el.id || 'gallery';
-        // capturing handler prevents previously attached generic handlers from opening the default popup
         el.addEventListener('click', (e) => {
             e.stopImmediatePropagation();
             openGalleryForKey(key);
         }, true);
     });
 
-    // If the top nav "Gallery" link should open a combined/random gallery:
     const galleryLink = document.getElementById('galleryLink');
     if (galleryLink) {
         galleryLink.addEventListener('click', (e) => {
@@ -971,19 +900,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, true);
     }
 
-    // Clean up popup on close
     if (galleryClose) {
         galleryClose.addEventListener('click', () => {
             galleryPopup.classList.remove('active');
             popupGallery.innerHTML = '';
             document.body.style.overflow = 'auto';
-            // reset title
             const titleEl = document.getElementById('memoryPopupTitle');
             if (titleEl) titleEl.textContent = 'Our Memories Gallery';
         });
     }
 
-    // Close when clicking outside content (keeps existing behavior but clears images)
     galleryPopup.addEventListener('click', (e) => {
         if (e.target === galleryPopup) {
             galleryPopup.classList.remove('active');
@@ -995,11 +921,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Cursor popup fix
 (function(){
-    // Ensure custom cursor appears above popups and responds to popup controls.
-    // This lightweight patch injects CSS to raise cursor z-index and adds delegated
-    // hover handling so popup elements trigger the same cursor scale behavior.
     function injectCursorStyles() {
         if (document.getElementById('cursor-popup-fix')) return;
         var css = `
@@ -1026,10 +948,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ].join(',');
 
         var cursorEl = function(){ return document.querySelector('.cursor'); };
-        // track mouse to determine element under pointer for robust leave handling
         var lastHoveredInteractive = false;
         document.addEventListener('mousemove', function(e){
-            // update hovered state using elementFromPoint
             var el = document.elementFromPoint(e.clientX, e.clientY);
             var isInteractive = el && el.closest && !!el.closest(interactiveSelector);
             if (isInteractive && !lastHoveredInteractive) {
@@ -1043,7 +963,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, {passive:true});
 
-        // also respond to focus events for accessibility (keyboard focus inside popups)
         document.addEventListener('focusin', function(e){
             if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
                 var c = cursorEl();
@@ -1067,9 +986,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
-// Mobile adaptation
 (function(){
-    // Lightweight early mobile-adapt that improves layout & interaction on touch/small screens.
     var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || window.innerWidth <= 768;
     window.__IS_TOUCH = isTouch;
 
@@ -1126,9 +1043,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
-// Resource preloading
 (function(){
-    // Early preconnects & preloads to speed up critical third-party resources
     var preconnects = [
         {rel:'preconnect', href:'https://fonts.googleapis.com'},
         {rel:'preconnect', href:'https://fonts.gstatic.com', crossorigin:''},
@@ -1144,9 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             var l = document.createElement('link');
             for (var k in def) if (def[k] !== undefined) l[k] = def[k];
-            // ensure crossorigin attribute exists when provided
             if (def.crossorigin !== undefined) l.setAttribute('crossorigin', def.crossorigin);
-            // if head exists, append immediately; otherwise wait until it's ready
             if (document.head) document.head.appendChild(l);
             else document.addEventListener('DOMContentLoaded', function(){ document.head.appendChild(l); });
         } catch(e) {}
@@ -1155,7 +1068,6 @@ document.addEventListener('DOMContentLoaded', () => {
     preconnects.forEach(appendLink);
     preloads.forEach(appendLink);
 
-    // Apply rel=stylesheet for font-awesome and fonts after head is available to avoid render-block
     document.addEventListener('DOMContentLoaded', function(){
         var fa = document.createElement('link');
         fa.rel = 'stylesheet';
@@ -1170,6 +1082,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
