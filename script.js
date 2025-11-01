@@ -1044,12 +1044,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch(e) {}
     }
 
-    const preconnects = [];
-    const preloads = [];
-
-    preconnects.forEach(appendLink);
-    preloads.forEach(appendLink);
-
     document.addEventListener('DOMContentLoaded', function(){
         var fa = document.createElement('link');
         fa.rel = 'stylesheet';
@@ -1062,4 +1056,5 @@ document.addEventListener('DOMContentLoaded', () => {
         fonts.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap';
         document.head.appendChild(fonts);
     }, {once:true});
+
 
