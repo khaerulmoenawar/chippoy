@@ -253,7 +253,7 @@ function initLoveLock() {
                 sparkle.style.height = '10px';
                 sparkle.style.background = 'white';
                 sparkle.style.borderRadius = '50%';
-                sparkle.style.left = (lockElement.getCachedRect(locekElement).left + Math.random() * 100) + 'px';
+                sparkle.style.left = (lockElement.getCachedRect(lockElement).left + Math.random() * 100) + 'px';
                 sparkle.style.top = (lockElement.getCachedRect(lockElement).top + Math.random() * 100) + 'px';
                 sparkle.style.pointerEvents = 'none';
                 sparkle.style.zIndex = '9999';
@@ -447,7 +447,7 @@ function checkVisibility() {
     const signature = document.querySelector('.signature');
     
     sections.forEach(section => {
-        const sectionTop = section.getCachedRect(section).top;
+        const sectionTop = getCachedRect(section).top;
         const windowHeight = window.innerHeight;
         
         if (sectionTop < windowHeight * 0.85) {
@@ -456,7 +456,7 @@ function checkVisibility() {
     });
     
     sectionTitles.forEach(title => {
-        const titleTop = title.getCachedRect(title).top;
+        const titleTop = getCachedRect(title).top;
         const windowHeight = window.innerHeight;
         
         if (titleTop < windowHeight * 0.85) {
@@ -465,7 +465,7 @@ function checkVisibility() {
     });
     
     notes.forEach((note, index) => {
-        const noteTop = note.getCachedRect(note).top;
+        const noteTop = getCachedRect(note).top;
         const windowHeight = window.innerHeight;
         
         if (noteTop < windowHeight * 0.85) {
@@ -476,7 +476,7 @@ function checkVisibility() {
     });
     
     promises.forEach((promise, index) => {
-        const promiseTop = promise.getCachedRect(promise).top;
+        const promiseTop = getCachedRect(promise).top;
         const windowHeight = window.innerHeight;
         
         if (promiseTop < windowHeight * 0.85) {
@@ -487,7 +487,7 @@ function checkVisibility() {
     });
     
     galleryItems.forEach((item, index) => {
-        const itemTop = item.getCachedRect(item).top;
+        const itemTop = getCachedRect(item).top;
         const windowHeight = window.innerHeight;
         
         if (itemTop < windowHeight * 0.85) {
@@ -498,7 +498,7 @@ function checkVisibility() {
     });
     
     memoryItems.forEach((item, index) => {
-        const itemTop = item.getCachedRect(item).top;
+        const itemTop = getCachedRect(item).top;
         const windowHeight = window.innerHeight;
         
         if (itemTop < windowHeight * 0.85) {
@@ -509,7 +509,7 @@ function checkVisibility() {
     });
     
     if (loveLetter) {
-        const letterTop = loveLetter.getCachedRect(loveLetter).top;
+        const letterTop = getCachedRect(loveLetter).top;
         const windowHeight = window.innerHeight;
         
         if (letterTop < windowHeight * 0.85) {
@@ -1070,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
         }
     );
+
 
 
 
