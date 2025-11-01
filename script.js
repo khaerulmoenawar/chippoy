@@ -581,19 +581,6 @@ function updateCountdown() {
     console.log(`Time elapsed: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
-});
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateCountdown);
-} else {
-    updateCountdown();
-}
-setInterval(updateCountdown, 1000);
-
 document.addEventListener('DOMContentLoaded', () => {
     createHearts();
     createAnimatedBackground();
@@ -603,12 +590,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initMusicPlayer();
     initPopups();
     checkVisibility();
+    initGalleryAndLightbox();
 
     window.addEventListener('scroll', checkVisibility, { passive: true });
     window.addEventListener('resize', checkVisibility);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function initGalleryAndLightbox() {
     const galleryPopup = document.getElementById('galleryPopup');
     const popupGallery = galleryPopup.querySelector('.popup-gallery');
     const galleryClose = document.getElementById('galleryClose');
@@ -1044,3 +1032,4 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
     }
 })();
+
