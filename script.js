@@ -1044,34 +1044,3 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
     }
 })();
-
-(function(){
-    function appendLink(def){
-        try {
-            var l = document.createElement('link');
-            for (var k in def) if (def[k] !== undefined) l[k] = def[k];
-            if (def.crossorigin !== undefined) l.setAttribute('crossorigin', def.crossorigin);
-            if (document.head) document.head.appendChild(l);
-            else document.addEventListener('DOMContentLoaded', function(){ document.head.appendChild(l); });
-        } catch(e) {}
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-        var fa = document.createElement('link');
-        fa.rel = 'stylesheet';
-        fa.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
-        fa.crossOrigin = '';
-        document.head.appendChild(fa);
-
-        var fonts = document.createElement('link');
-        fonts.rel = 'stylesheet';
-        fonts.href = 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap';
-        document.head.appendChild(fonts);
-    }, {once:true});
-        }
-    );
-
-
-
-
-
