@@ -344,12 +344,9 @@ function initMusicPlayer() {
     audio.src = 'November the 2nd.wav';
     audio.loop = true;
 
-    audio.play().catch(e => {
-        console.log('Autoplay prevented:', e);
-        isPlaying = false;
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Click to play';
-    });
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Click to play';
+    isPlaying = false;
     
     playPauseBtn.addEventListener('click', () => {
         isPlaying = !isPlaying;
@@ -1037,18 +1034,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
-(function(){
-    var preconnects = [
-        {rel:'preconnect', href:'https://fonts.googleapis.com'},
-        {rel:'preconnect', href:'https://fonts.gstatic.com', crossorigin:''},
-        {rel:'preconnect', href:'https://cdnjs.cloudflare.com', crossorigin:''}
-    ];
-    var preloads = [
-        {rel:'preload', href:'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', as:'style'},
-        {rel:'preload', href:'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap', as:'style'},
-        {rel:'preload', href:'November the 2nd.wav', as:'audio'}
-    ];
-
     function appendLink(def){
         try {
             var l = document.createElement('link');
@@ -1076,6 +1061,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
