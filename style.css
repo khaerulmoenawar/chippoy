@@ -40,7 +40,6 @@ body {
     transition: var(--transition);
 }
 
-/* Custom Cursor */
 .cursor {
     position: fixed;
     width: 30px;
@@ -78,7 +77,6 @@ body {
     transition: transform 0.15s ease;
 }
 
-/* Animated Background */
 .animated-bg {
     position: fixed;
     top: 0;
@@ -112,7 +110,6 @@ body {
     padding: 0 20px;
 }
 
-/* Theme Toggle */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -139,7 +136,6 @@ body {
     color: var(--primary);
 }
 
-/* Header Styles */
 header {
     height: 100vh;
     display: flex;
@@ -242,7 +238,6 @@ h1 {
     color: var(--dark);
 }
 
-/* Navigation */
 .nav-container {
     position: fixed;
     top: 0;
@@ -315,7 +310,6 @@ nav {
     width: 100%;
 }
 
-/* Section Styles */
 section {
     padding: 120px 0;
     opacity: 0;
@@ -358,7 +352,6 @@ section.visible {
     border-radius: 2px;
 }
 
-/* Love Notes Section */
 .love-notes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,7 +403,6 @@ section.visible {
     font-family: 'Playfair Display', serif;
 }
 
-/* Interactive Photo Gallery */
 .gallery-container {
     position: relative;
     max-width: 1000px;
@@ -456,7 +448,6 @@ section.visible {
     opacity: 0.8;
 }
 
-/* Love Letter with Typewriter Effect */
 .love-letter {
     max-width: 850px;
     margin: 0 auto;
@@ -549,7 +540,6 @@ section.visible {
     transform: translateY(0);
 }
 
-/* Enhanced Memory Lane - Interactive Timeline */
 .memory-lane {
     position: relative;
     max-width: 900px;
@@ -660,7 +650,6 @@ section.visible {
     box-shadow: 0 10px 30px rgba(118, 75, 162, 0.3);
 }
 
-/* Promise Section */
 .promises {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -701,7 +690,6 @@ section.visible {
     font-family: 'Playfair Display', serif;
 }
 
-/* Enhanced Love Lock */
 .love-lock-container {
     text-align: center;
     margin: 60px auto;
@@ -805,7 +793,6 @@ section.visible {
     left: -60px;
 }
 
-/* Interactive Music Player */
 .music-player {
     position: fixed;
     bottom: 30px;
@@ -848,7 +835,6 @@ section.visible {
     color: var(--text);
 }
 
-/* Heart Confetti */
 .heart-confetti {
     position: fixed;
     font-size: 20px;
@@ -857,7 +843,6 @@ section.visible {
     pointer-events: none;
 }
 
-/* Popup Modal */
 .popup-modal {
     position: fixed;
     top: 0;
@@ -959,7 +944,6 @@ section.visible {
     line-height: 1.7;
 }
 
-/* Footer */
 footer {
     background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
     color: white;
@@ -987,7 +971,6 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Scroll to top button */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -1019,7 +1002,6 @@ footer {
     transform: translateY(-5px);
 }
 
-/* Animation Keyframes */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -1034,7 +1016,6 @@ footer {
     }
 }
 
-/* Floating animation for decorative elements */
 .floating {
     animation: floating 3s ease-in-out infinite;
 }
@@ -1045,7 +1026,6 @@ footer {
     100% { transform: translate(0, -0px); }
 }
 
-/* Click Effect */
 .click-effect {
     position: fixed;
     width: 20px;
@@ -1068,7 +1048,6 @@ footer {
     }
 }
 
-/* Responsive */
 @media (max-width: 992px) {
     h1 {
         font-size: 4rem;
@@ -1151,3 +1130,4 @@ footer {
     }
 
 }
+
