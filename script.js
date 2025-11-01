@@ -593,10 +593,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initPopups();
     checkVisibility();
 
-    window.addEventListener('scroll', checkVisibility, { passive: true });
-    window.addEventListener('resize', checkVisibility);
-});
+    window.addEventListener('scroll', debounce(checkVisibility, 100), { passive: true });
+    window.addEventListener('resize', debounce(checkVisibility, 200));
 
+    function debounce(fn, delay) {
+      let timeout;
+      return () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(fn, delay);
+  };
+        
 document.addEventListener('DOMContentLoaded', () => {
     const galleryPopup = document.getElementById('galleryPopup');
     const popupGallery = galleryPopup.querySelector('.popup-gallery');
@@ -1057,6 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(fonts);
     }, {once:true});
 ;
+
 
 
 
