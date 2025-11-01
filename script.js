@@ -1063,7 +1063,3 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(fonts);
     }, {once:true});
 ;
-
-
-
-
