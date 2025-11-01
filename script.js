@@ -919,7 +919,6 @@ function initGalleryAndLightbox() {
             if (titleEl) titleEl.textContent = 'Our Memories Gallery';
         }
     });
-});
 
 (function(){
     function injectCursorStyles() {
@@ -1032,4 +1031,5 @@ function initGalleryAndLightbox() {
         `);
     }
 })();
+
 
