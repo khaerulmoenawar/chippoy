@@ -110,6 +110,28 @@ body {
     padding: 0 20px;
 }
 
+.theme-toggle, 
+.music-control, 
+.popup-close, 
+.scroll-to-top,
+.nav-links a {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:focus,
+.music-control:focus,
+.popup-close:focus,
+.scroll-to-top:focus,
+.nav-links a:focus,
+.gallery-item:focus,
+.memory-content:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primary);
+}
+
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -1130,4 +1152,5 @@ footer {
     }
 
 }
+
 
