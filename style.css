@@ -19,10 +19,10 @@
 }
 
 [data-theme="dark"] {
-    --primary: #8db600;
+    --primary: #e91e63;
     --secondary: #1a1a1a;
-    --accent: #a8c74e;
-    --dark: #c9d787;
+    --accent: #ff4081;
+    --dark: #f06292;
     --light: #2d2d2d;
     --bg: #121212;
     --text: #e0e0e0;
@@ -1160,6 +1160,7 @@ footer {
   font-display: swap;
   src: url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/webfonts/fa-solid-900.woff2') format('woff2');
 }
+
 
 
 
