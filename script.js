@@ -925,7 +925,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function injectCursorStyles() {
         if (document.getElementById('cursor-popup-fix')) return;
         var css = `
-            /* make custom cursor and effects sit above modals/popup overlays */
             .cursor, .cursor-follower, .click-effect, .heart-confetti {
                 z-index: 20001 !important;
                 pointer-events: none !important;
@@ -1003,39 +1002,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isTouch) {
         inject(`
-            /* Restore default cursor & hide custom cursor artifacts for touch devices */
             * { cursor: auto !important; }
             .cursor, .cursor-follower, .click-effect, .heart-confetti { display: none !important; }
 
-            /* Make header more flexible on small screens */
             header { height: auto !important; padding: 60px 20px !important; }
             h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
             .subtitle { font-size: 1rem !important; margin-bottom: 18px !important; }
 
-            /* More compact countdown */
             .countdown-container { padding: 16px !important; }
             .countdown-item { padding: 12px 10px !important; min-width: 64px !important; }
 
-            /* Single-column galleries & popup friendly sizes */
             .gallery, .popup-gallery { grid-template-columns: 1fr !important; gap: 12px !important; }
             .gallery-item, .popup-gallery-item { height: 180px !important; border-radius: 12px !important; }
 
-            /* Bigger touch targets */
             .music-player { left: 12px !important; bottom: 12px !important; padding: 10px 12px !important; border-radius: 12px !important; }
             .music-control, .theme-toggle, .popup-close, .scroll-to-top { min-width: 44px !important; min-height: 44px !important; }
 
-            /* Make popups and letters easier to read on small screens */
             .popup-content { padding: 18px !important; width: 94% !important; max-width: 720px !important; }
             .love-letter { padding: 22px !important; border-radius: 14px !important; }
 
-            /* Reduce distracting background/float animation intensity */
             .bg-element, .heart, .floating { animation-duration: 6s !important; opacity: 0.15 !important; }
             .animated-bg { opacity: 0.7 !important; }
 
-            /* Ensure nav is usable (hide desktop links, rely on anchors) */
             .nav-links { display: none !important; }
 
-            /* Improve performance: avoid heavy transitions on low-width screens */
             @media (max-width: 480px) {
                 * { transition: none !important; }
             }
@@ -1082,6 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
