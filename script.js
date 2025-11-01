@@ -130,8 +130,10 @@ function initThemeToggle() {
         const icon = themeToggle.querySelector('i');
         if (theme === 'pink') {
             icon.className = 'fas fa-moon';
+            themeToggle.setAttribute('aria-label', 'Switch to dark theme');
         } else {
             icon.className = 'fas fa-sun';
+            themeToggle.setAttribute('aria-label', 'Switch to light theme');
         }
     }
 }
@@ -355,10 +357,12 @@ function initMusicPlayer() {
         if (isPlaying) {
             audio.play();
             playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playPauseBtn.setAttribute('aria-label', 'Pause background music');
             musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Playing';
         } else {
             audio.pause();
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playPauseBtn.setAttribute('aria-label', 'Play background music');
             musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Paused';
         }
     });
@@ -1072,6 +1076,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
