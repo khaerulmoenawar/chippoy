@@ -1050,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('DOMContentLoaded', function(){
         var fa = document.createElement('link');
         fa.rel = 'stylesheet';
-        fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        fa.href = 'https://cdn.jsdelivr.net/npm/font-awesome@6.4.0/css/all.min.css';
         fa.crossOrigin = '';
         document.head.appendChild(fa);
 
