@@ -232,8 +232,8 @@ function initLoveLock() {
         heart.style.position = 'fixed';
         heart.style.color = getComputedStyle(document.documentElement).getPropertyValue('--primary');
         heart.style.fontSize = '20px';
-        heart.style.left = lockElement.getCachedRect(lockElement).left + 'px';
-        heart.style.top = lockElement.getCachedRect(lockElement).top + 'px';
+        heart.style.left = getCachedRect(lockElement).left + 'px';
+        heart.style.top = getCachedRect(lockElement).top + 'px';
         heart.style.pointerEvents = 'none';
         heart.style.zIndex = '9999';
         heart.style.animation = `floatHeart 2s ease-out forwards`;
@@ -253,8 +253,8 @@ function initLoveLock() {
                 sparkle.style.height = '10px';
                 sparkle.style.background = 'white';
                 sparkle.style.borderRadius = '50%';
-                sparkle.style.left = (lockElement.getCachedRect(lockElement).left + Math.random() * 100) + 'px';
-                sparkle.style.top = (lockElement.getCachedRect(lockElement).top + Math.random() * 100) + 'px';
+                sparkle.style.left = (getCachedRect(lockElement).left + Math.random() * 100) + 'px';
+                sparkle.style.top = (getCachedRect(lockElement).top + Math.random() * 100) + 'px';
                 sparkle.style.pointerEvents = 'none';
                 sparkle.style.zIndex = '9999';
                 sparkle.style.animation = 'sparkle 1s ease-out forwards';
@@ -1070,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
         }
     );
+
 
 
 
