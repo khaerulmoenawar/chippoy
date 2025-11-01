@@ -142,10 +142,8 @@ function initThemeToggle() {
         const icon = themeToggle.querySelector('i');
         if (theme === 'pink') {
             icon.className = 'fas fa-moon';
-            themeToggle.setAttribute('aria-label', 'Switch to dark theme');
         } else {
             icon.className = 'fas fa-sun';
-            themeToggle.setAttribute('aria-label', 'Switch to light theme');
         }
     }
 }
@@ -356,9 +354,12 @@ function initMusicPlayer() {
     audio.src = 'November the 2nd.wav';
     audio.loop = true;
 
-    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-    musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Click to play';
-    isPlaying = false;
+    audio.play().catch(e => {
+        console.log('Autoplay prevented:', e);
+        isPlaying = false;
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Click to play';
+    });
     
     playPauseBtn.addEventListener('click', () => {
         isPlaying = !isPlaying;
@@ -366,12 +367,10 @@ function initMusicPlayer() {
         if (isPlaying) {
             audio.play();
             playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            playPauseBtn.setAttribute('aria-label', 'Pause background music');
             musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Playing';
         } else {
             audio.pause();
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            playPauseBtn.setAttribute('aria-label', 'Play background music');
             musicPlayer.querySelector('.music-info').textContent = 'November the 2nd - Paused';
         }
     });
@@ -605,16 +604,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initPopups();
     checkVisibility();
 
-    window.addEventListener('scroll', debounce(checkVisibility, 100), { passive: true });
-    window.addEventListener('resize', debounce(checkVisibility, 200));
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    window.addEventListener('resize', checkVisibility);
+});
 
-    function debounce(fn, delay) {
-      let timeout;
-      return () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(fn, delay);
-  };
-        
 document.addEventListener('DOMContentLoaded', () => {
     const galleryPopup = document.getElementById('galleryPopup');
     const popupGallery = galleryPopup.querySelector('.popup-gallery');
@@ -1052,6 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
+(function(){
     function appendLink(def){
         try {
             var l = document.createElement('link');
@@ -1075,6 +1069,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(fonts);
     }, {once:true});
         }
-    });
-
-
+    );
