@@ -1030,6 +1030,5 @@ function initGalleryAndLightbox() {
             }
         `);
     }
-})();
-
-
+  })();
+}
