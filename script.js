@@ -1,3 +1,15 @@
+let layoutCache = new Map();
+
+function getCachedRect(element) {
+    if (!layoutCache.has(element)) {
+        layoutCache.set(element, element.getBoundingClientRect());
+    }
+    return layoutCache.get(element);
+}
+
+window.addEventListener('resize', () => layoutCache.clear());
+window.addEventListener('scroll', () => layoutCache.clear());
+
 const memoryDetails = {
     'first-date': {
         title: 'The Beginning of Our Love Story',
@@ -1064,4 +1076,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
         }
     });
+
 
