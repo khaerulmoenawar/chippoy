@@ -2,7 +2,7 @@ let layoutCache = new Map();
 
 function getCachedRect(element) {
     if (!layoutCache.has(element)) {
-        layoutCache.set(element, element.getCachedRect(element));
+        layoutCache.set(element, element.getBoundingClientRect()); 
     }
     return layoutCache.get(element);
 }
@@ -1070,5 +1070,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
         }
     );
+
 
 
