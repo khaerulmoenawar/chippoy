@@ -1047,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('DOMContentLoaded', function(){
         var fa = document.createElement('link');
         fa.rel = 'stylesheet';
-        fa.href = 'https://cdn.jsdelivr.net/npm/font-awesome@6.4.0/css/all.min.css';
+        fa.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
         fa.crossOrigin = '';
         document.head.appendChild(fa);
 
@@ -1057,3 +1057,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(fonts);
     }, {once:true});
 ;
+
