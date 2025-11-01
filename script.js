@@ -1,3 +1,28 @@
+function loadNonCriticalCSS() {
+    const links = [
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap',
+        'style.css'
+    ];
+    
+    links.forEach(href => {
+        if (!document.querySelector(`link[href="${href}"]`)) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            document.head.appendChild(link);
+        }
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(loadNonCriticalCSS, 100);
+    });
+} else {
+    setTimeout(loadNonCriticalCSS, 100);
+}
+
 const memoryDetails = {
     'first-date': {
         title: 'The Beginning of Our Love Story',
@@ -1072,6 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {once:true});
 
 })();
+
 
 
 
