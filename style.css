@@ -1,3 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  backface-visibility: hidden;
+}
+
+.gallery-item,
+.memory-content,
+.note,
+.promise {
+  will-change: transform, opacity;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-1000px) rotate(360deg);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -123,6 +144,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .theme-toggle:focus,
 .music-control:focus,
 .popup-close:focus,
