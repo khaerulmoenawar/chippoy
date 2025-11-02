@@ -605,6 +605,7 @@ function updateCountdown() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  createHearts();
   createAnimatedBackground();
   initThemeToggle();
   initCustomCursor();
@@ -1118,4 +1119,5 @@ function initGalleryAndLightbox() {
     }
   })();
 }
+
 
