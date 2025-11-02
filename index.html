@@ -1,385 +1,491 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Celebrating our beautiful love story since November 2, 2023. A journey of love, memories, and promises through two amazing years together.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Celebrating our beautiful love story since November 2, 2023. A journey of love, memories, and promises through two amazing years together."
+    />
     <title>November the 2nd</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"media="print" onload="this.media='all'">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-    <script src="script.js"></script>
     <script src="script.js" defer></script>
-    
-</head>
-<body>
+  </head>
+  <body>
     <div class="cursor">
-        <div class="cursor-inner"></div>
+      <div class="cursor-inner"></div>
     </div>
     <div class="cursor-follower"></div>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
-        <i class="fas fa-moon"></i>
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      aria-label="Toggle between light and dark theme"
+    >
+      <i class="fas fa-moon"></i>
     </button>
     <div class="music-player" id="musicPlayer">
-        <button class="music-control" id="playPauseBtn" aria-label="Play or pause background music">
-            <i class="fas fa-pause"></i>
-        </button>
-        <div class="music-info">November the 2nd - Adhitya Sofyan</div>
+      <button
+        class="music-control"
+        id="playPauseBtn"
+        aria-label="Play or pause background music"
+      >
+        <i class="fas fa-pause"></i>
+      </button>
+      <div class="music-info">November the 2nd - Adhitya Sofyan</div>
     </div>
 
     <div class="popup-modal" id="galleryPopup">
-        <div class="popup-content">
-            <button class="popup-close" id="galleryClose" aria-label="Close gallery popup">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="popup-title">Our Memories Gallery</h2>
-            <div class="popup-gallery">
-                <div class="popup-gallery-item">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <div class="popup-gallery-item">
-                    <i class="fas fa-camera"></i>
-                </div>
-                <div class="popup-gallery-item">
-                    <i class="fas fa-kiss-wink-heart"></i>
-                </div>
-                <div class="popup-gallery-item">
-                    <i class="fas fa-images"></i>
-                </div>
-                <div class="popup-gallery-item">
-                    <i class="fas fa-film"></i>
-                </div>
-                <div class="popup-gallery-item">
-                    <i class="fas fa-smile-beam"></i>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-style: italic; color: var(--dark);">
-            </p>
+      <div class="popup-content">
+        <button
+          class="popup-close"
+          id="galleryClose"
+          aria-label="Close gallery popup"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="popup-title">Our Memories Gallery</h2>
+        <div class="popup-gallery">
+          <div class="popup-gallery-item">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="popup-gallery-item">
+            <i class="fas fa-camera"></i>
+          </div>
+          <div class="popup-gallery-item">
+            <i class="fas fa-kiss-wink-heart"></i>
+          </div>
+          <div class="popup-gallery-item">
+            <i class="fas fa-images"></i>
+          </div>
+          <div class="popup-gallery-item">
+            <i class="fas fa-film"></i>
+          </div>
+          <div class="popup-gallery-item">
+            <i class="fas fa-smile-beam"></i>
+          </div>
         </div>
+        <p
+          style="
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--dark);
+          "
+        ></p>
+      </div>
     </div>
 
     <div class="popup-modal" id="memoryPopup">
-        <div class="popup-content">
-            <button class="popup-close" id="memoryClose" aria-label="Close memory popup">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="popup-title" id="memoryPopupTitle">Our First Romantic Day</h2>
-            <div class="memory-details" id="memoryPopupContent">
-            </div>
-        </div>
+      <div class="popup-content">
+        <button
+          class="popup-close"
+          id="memoryClose"
+          aria-label="Close memory popup"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h2 class="popup-title" id="memoryPopupTitle">
+          Our First Romantic Day
+        </h2>
+        <div class="memory-details" id="memoryPopupContent"></div>
+      </div>
     </div>
 
     <div class="animated-bg" id="animatedBg"></div>
 
     <div class="nav-container">
-        <div class="container">
-            <nav>
-                <div class="logo">November the 2nd</div>
-                <div class="nav-links">
-                    <a href="#memories">Memories</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#love-letter">Love Letter</a>
-                    <a href="#promises">Promises</a>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav>
+          <div class="logo">November the 2nd</div>
+          <div class="nav-links">
+            <a href="#memories">Memories</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#love-letter">Love Letter</a>
+            <a href="#promises">Promises</a>
+          </div>
+        </nav>
+      </div>
     </div>
 
     <header>
-        <div class="hearts-bg" id="heartsContainer"></div>
-        <div class="container">
-            <h1>Our Beautiful Journey</h1>
-            <p class="subtitle">Celebrating our love since November 2, 2023</p>
-            <div class="countdown-container">
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="years">2</div>
-                        <span class="countdown-label" aria-hidden="true">Years</span>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="months">0</div>
-                        <div class="countdown-label">Months</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">0</div>
-                        <div class="countdown-label">Days</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">0</div>
-                        <div class="countdown-label">Hours</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">0</div>
-                        <div class="countdown-label">Minutes</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">0</div>
-                        <div class="countdown-label">Seconds</div>
-                    </div>
-                </div>
+      <div class="hearts-bg" id="heartsContainer"></div>
+      <div class="container">
+        <h1>Our Beautiful Journey</h1>
+        <p class="subtitle">Celebrating our love since November 2, 2023</p>
+        <div class="countdown-container">
+          <div class="countdown">
+            <div class="countdown-item">
+              <div class="countdown-number" id="years">2</div>
+              <span class="countdown-label" aria-hidden="true">Years</span>
             </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="months">0</div>
+              <div class="countdown-label">Months</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="days">0</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="hours">0</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="minutes">0</div>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="seconds">0</div>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
         </div>
+      </div>
     </header>
 
-<section id="memories">
-    <div class="container">
+    <section id="memories">
+      <div class="container">
         <h2 class="section-title">Our Memory Lane</h2>
         <div class="memory-lane">
-            <div class="memory-item">
-                <div class="memory-content" data-memory="first-date">
-                    <div class="memory-date">November 2, 2023</div>
-                    <h3>The Beginning of Our Love Story</h3>
-                    <p>That magical afternoon at GBK Urban Forest where our hearts first connected under the golden sunset, beginning our beautiful journey together.</p>
-                </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="first-date">
+              <div class="memory-date">November 2, 2023</div>
+              <h3>The Beginning of Our Love Story</h3>
+              <p>
+                That magical afternoon at GBK Urban Forest where our hearts
+                first connected under the golden sunset, beginning our beautiful
+                journey together.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="my-birthday">
-                    <div class="memory-date">December 5, 2023</div>
-                    <h3>My Birthday at the Aquarium</h3>
-                    <p>Celebrating my special day with underwater wonders, hilarious camera mishaps, and our first adventurous motorcycle ride through Jakarta.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="my-birthday">
+              <div class="memory-date">December 5, 2023</div>
+              <h3>My Birthday at the Aquarium</h3>
+              <p>
+                Celebrating my special day with underwater wonders, hilarious
+                camera mishaps, and our first adventurous motorcycle ride
+                through Jakarta.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="our-cafe-spot">
-                    <div class="memory-date">February 7, 2024</div>
-                    <h3>Our First Cafe Sanctuary</h3>
-                    <p>Discovering Jiwan Cafe in Bogor - the beginning of our special tradition and our beloved spot for heartfelt conversations and shared dreams.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="our-cafe-spot">
+              <div class="memory-date">February 7, 2024</div>
+              <h3>Our First Cafe Sanctuary</h3>
+              <p>
+                Discovering Jiwan Cafe in Bogor - the beginning of our special
+                tradition and our beloved spot for heartfelt conversations and
+                shared dreams.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="your-birthday">
-                    <div class="memory-date">July 28, 2024</div>
-                    <h3>Your First Birthday Celebration</h3>
-                    <p>A rainy but magical day at Bogor Botanical Gardens with heartfelt homemade cake - celebrating you in the most special way.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="your-birthday">
+              <div class="memory-date">July 28, 2024</div>
+              <h3>Your First Birthday Celebration</h3>
+              <p>
+                A rainy but magical day at Bogor Botanical Gardens with
+                heartfelt homemade cake - celebrating you in the most special
+                way.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="our-graduation">
-                    <div class="memory-date">September 19, 2024</div>
-                    <h3>Graduation Day & Family Meetings</h3>
-                    <p>Sharing our academic triumph and the beautiful merging of our families - a day of double celebration and new beginnings.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="our-graduation">
+              <div class="memory-date">September 19, 2024</div>
+              <h3>Graduation Day & Family Meetings</h3>
+              <p>
+                Sharing our academic triumph and the beautiful merging of our
+                families - a day of double celebration and new beginnings.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="one-year">
-                    <div class="memory-date">November 2, 2024</div>
-                    <h3>One Year Anniversary</h3>
-                    <p>Celebrating 366 days of love surviving emotional rollercoasters and achieving our academic goals together against all odds.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="one-year">
+              <div class="memory-date">November 2, 2024</div>
+              <h3>One Year Anniversary</h3>
+              <p>
+                Celebrating 366 days of love surviving emotional rollercoasters
+                and achieving our academic goals together against all odds.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="second-year">
-                    <div class="memory-date">Throughout 2025</div>
-                    <h3>Growing Through Distance</h3>
-                    <p>Our second year brought different battles - my career search and your scholarship journey, yet our love became the anchor that held us steady through the storms of uncertainty.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="second-year">
+              <div class="memory-date">Throughout 2025</div>
+              <h3>Growing Through Distance</h3>
+              <p>
+                Our second year brought different battles - my career search and
+                your scholarship journey, yet our love became the anchor that
+                held us steady through the storms of uncertainty.
+              </p>
             </div>
-            <div class="memory-item">
-                <div class="memory-content" data-memory="today">
-                    <div class="memory-date">November 2, 2025</div>
-                    <h3>Two Years of Growing Together</h3>
-                    <p>731 days of love evolving through changes, learning through distance, and growing stronger through every season.</p>
-                </div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-content" data-memory="today">
+              <div class="memory-date">November 2, 2025</div>
+              <h3>Two Years of Growing Together</h3>
+              <p>
+                731 days of love evolving through changes, learning through
+                distance, and growing stronger through every season.
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section>
-        <div class="container">
-            <div class="love-lock-container">
-                <h2 class="section-title">Our Love Lock</h2>
-                <div class="love-lock" id="loveLock">
-                    <div class="lock-key"></div>
-                    <div class="lock-shackle"></div>
-                    <div class="lock-body">
-                        <i class="fas fa-heart"></i>
-                        <div class="lock-keyhole"></div>
-                    </div>
-                </div>
-                <div class="lock-message">
-                    <p>Our love is eternal, just like this lock. No matter what challenges come our way, our bond remains unbreakable. I promise to cherish and protect our love forever.</p>
-                    <p style="margin-top: 15px; font-style: italic;">Click the lock again to close</p>
-                </div>
+      <div class="container">
+        <div class="love-lock-container">
+          <h2 class="section-title">Our Love Lock</h2>
+          <div class="love-lock" id="loveLock">
+            <div class="lock-key"></div>
+            <div class="lock-shackle"></div>
+            <div class="lock-body">
+              <i class="fas fa-heart"></i>
+              <div class="lock-keyhole"></div>
             </div>
+          </div>
+          <div class="lock-message">
+            <p>
+              Our love is eternal, just like this lock. No matter what
+              challenges come our way, our bond remains unbreakable. I promise
+              to cherish and protect our love forever.
+            </p>
+            <p style="margin-top: 15px; font-style: italic">
+              Click the lock again to close
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="gallery">
-        <div class="container">
-            <h2 class="section-title">Our Memories Gallery</h2>
-            <div class="gallery-container">
-                <div class="gallery">
-                    <div class="gallery-item" id="galleryTrigger">
-                        <i class="fas fa-heart floating"></i>
-                    </div>
-                    <div class="gallery-item" id="galleryTrigger2">
-                        <i class="fas fa-camera floating"></i>
-                    </div>
-                    <div class="gallery-item" id="galleryTrigger3">
-                        <i class="fas fa-kiss-wink-heart floating"></i>
-                    </div>
-                    <div class="gallery-item" id="galleryTrigger4">
-                        <i class="fas fa-images floating"></i>
-                    </div>
-                    <div class="gallery-item" id="galleryTrigger5">
-                        <i class="fas fa-film floating"></i>
-                    </div>
-                    <div class="gallery-item" id="galleryTrigger6">
-                        <i class="fas fa-smile-beam floating"></i>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Our Memories Gallery</h2>
+        <div class="gallery-container">
+          <div class="gallery">
+            <div class="gallery-item" id="galleryTrigger">
+              <i class="fas fa-heart floating"></i>
             </div>
-            <p style="text-align: center; margin-top: 30px; font-style: italic; color: var(--dark);">
-                Click on any gallery item to view our memories!
-            </p>
+            <div class="gallery-item" id="galleryTrigger2">
+              <i class="fas fa-camera floating"></i>
+            </div>
+            <div class="gallery-item" id="galleryTrigger3">
+              <i class="fas fa-kiss-wink-heart floating"></i>
+            </div>
+            <div class="gallery-item" id="galleryTrigger4">
+              <i class="fas fa-images floating"></i>
+            </div>
+            <div class="gallery-item" id="galleryTrigger5">
+              <i class="fas fa-film floating"></i>
+            </div>
+            <div class="gallery-item" id="galleryTrigger6">
+              <i class="fas fa-smile-beam floating"></i>
+            </div>
+          </div>
         </div>
+        <p
+          style="
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--dark);
+          "
+        >
+          Click on any gallery item to view our memories!
+        </p>
+      </div>
     </section>
 
-<section id="love-letter">
-    <div class="container">
+    <section id="love-letter">
+      <div class="container">
         <h2 class="section-title">To My Love</h2>
         <div class="love-letter">
-            <div class="letter-content">
-                <p class="typewriter-text" id="typewriterGreeting">My Dearest Chippy,</p>
-                
-                <p>Do you remember how the sunlight filtered through the trees at GBK that first afternoon? I do. I remember thinking how your laughter sounded like my new favorite song, and how your eyes held galaxies I wanted to explore forever. That day, November 2nd, 2023, wasn't just a date - it was the day my soul recognized its home.</p>
-                
-                <p>My love, these two years with you have been the most beautiful education in what love truly means. You've taught me that love isn't always grand gestures - sometimes it's in the way you waited patiently while I struggled to find my path, or how your eyes still light up when you see me even after all this time. It's in the ruined film rolls that became our favorite story, and the rainy days at Bogor that felt like blessings because we were together.</p>
-                
-                <p>I've fallen in love with you in so many ways - in the quiet moments at Jiwan Cafe where our souls spoke without words, in the way you hold my hand during movies like it's the most natural thing in the world, and in the strength you showed while chasing your dreams abroad. Each version of you I discover becomes more precious than the last.</p>
-                
-                <p>When I think about our journey - the passionate fire of our first year that tempered into the steady flame of our second - I'm overwhelmed with gratitude. Thank you for choosing us even when it was hard. Thank you for seeing the man I could become and loving the man I am. Thank you for being my safe harbor during storms of uncertainty and my brightest celebration in moments of joy.</p>
-                
-                <p>You are my greatest adventure, my most beautiful surprise, and my heart's truest companion. The distance we've endured only proved what I've always known - our connection transcends time and space. You're the first thought that greets me each morning and the sweet dream that visits me each night.</p>
-                
-                <p>As we celebrate two years of us, I want you to know that my love for you has deepened in ways I never thought possible. It's grown roots that no storm can shake, and wings that help us soar through every challenge. I love you not only for who you are, but for who I become when I'm with you.</p>
-                
-                <p>Forever yours, in this lifetime and every other,</p>
-            </div>
-            <div class="signature">
-                <p>With all that I am,</p>
-                <p>And all that I hope to be,</p>
-                <p>Your Machip</p>
-            </div>
+          <div class="letter-content">
+            <p class="typewriter-text" id="typewriterGreeting">
+              My Dearest Chippy,
+            </p>
+
+            <p>
+              Do you remember how the sunlight filtered through the trees at GBK
+              that first afternoon? I do. I remember thinking how your laughter
+              sounded like my new favorite song, and how your eyes held galaxies
+              I wanted to explore forever. That day, November 2nd, 2023, wasn't
+              just a date - it was the day my soul recognized its home.
+            </p>
+
+            <p>
+              My love, these two years with you have been the most beautiful
+              education in what love truly means. You've taught me that love
+              isn't always grand gestures - sometimes it's in the way you waited
+              patiently while I struggled to find my path, or how your eyes
+              still light up when you see me even after all this time. It's in
+              the ruined film rolls that became our favorite story, and the
+              rainy days at Bogor that felt like blessings because we were
+              together.
+            </p>
+
+            <p>
+              I've fallen in love with you in so many ways - in the quiet
+              moments at Jiwan Cafe where our souls spoke without words, in the
+              way you hold my hand during movies like it's the most natural
+              thing in the world, and in the strength you showed while chasing
+              your dreams abroad. Each version of you I discover becomes more
+              precious than the last.
+            </p>
+
+            <p>
+              When I think about our journey - the passionate fire of our first
+              year that tempered into the steady flame of our second - I'm
+              overwhelmed with gratitude. Thank you for choosing us even when it
+              was hard. Thank you for seeing the man I could become and loving
+              the man I am. Thank you for being my safe harbor during storms of
+              uncertainty and my brightest celebration in moments of joy.
+            </p>
+
+            <p>
+              You are my greatest adventure, my most beautiful surprise, and my
+              heart's truest companion. The distance we've endured only proved
+              what I've always known - our connection transcends time and space.
+              You're the first thought that greets me each morning and the sweet
+              dream that visits me each night.
+            </p>
+
+            <p>
+              As we celebrate two years of us, I want you to know that my love
+              for you has deepened in ways I never thought possible. It's grown
+              roots that no storm can shake, and wings that help us soar through
+              every challenge. I love you not only for who you are, but for who
+              I become when I'm with you.
+            </p>
+
+            <p>Forever yours, in this lifetime and every other,</p>
+          </div>
+          <div class="signature">
+            <p>With all that I am,</p>
+            <p>And all that I hope to be,</p>
+            <p>Your Machip</p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section id="promises">
-        <div class="container">
-            <h2 class="section-title">My Promises to You</h2>
-            <div class="promises">
-                <div class="promise">
-                    <i class="fas fa-heart floating"></i>
-                    <h3>Unconditional Love</h3>
-                    <p>I promise to love you faithfully through all of life's seasons.</p>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-hand-holding-heart floating"></i>
-                    <h3>Constant Support</h3>
-                    <p>I will always be your biggest supporter and your safe haven.</p>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-laugh-beam floating"></i>
-                    <h3>Endless Laughter</h3>
-                    <p>I promise to keep our life filled with joy and laughter.</p>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-hands-helping floating"></i>
-                    <h3>Always There</h3>
-                    <p>I will be by your side through every challenge and celebration.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">My Promises to You</h2>
+        <div class="promises">
+          <div class="promise">
+            <i class="fas fa-heart floating"></i>
+            <h3>Unconditional Love</h3>
+            <p>
+              I promise to love you faithfully through all of life's seasons.
+            </p>
+          </div>
+          <div class="promise">
+            <i class="fas fa-hand-holding-heart floating"></i>
+            <h3>Constant Support</h3>
+            <p>I will always be your biggest supporter and your safe haven.</p>
+          </div>
+          <div class="promise">
+            <i class="fas fa-laugh-beam floating"></i>
+            <h3>Endless Laughter</h3>
+            <p>I promise to keep our life filled with joy and laughter.</p>
+          </div>
+          <div class="promise">
+            <i class="fas fa-hands-helping floating"></i>
+            <h3>Always There</h3>
+            <p>
+              I will be by your side through every challenge and celebration.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="notes">
-        <div class="container">
-            <h2 class="section-title">Little Love Notes</h2>
-            <div class="love-notes">
-                <div class="note">
-                    <div class="note-icon">
-                        <i class="fas fa-star floating"></i>
-                    </div>
-                    <h3>What I Love About You</h3>
-                    <p>Your smile that lights up my world, your kindness that touches everyone around you, and the way you make even ordinary days feel special.</p>
-                </div>
-                <div class="note">
-                    <div class="note-icon">
-                        <i class="fas fa-memory floating"></i>
-                    </div>
-                    <h3>Favorite Memory</h3>
-                    <p>That rainy afternoon we spent talking for hours, not realizing how much time had passed because we were so lost in each other.</p>
-                </div>
-                <div class="note">
-                    <div class="note-icon">
-                        <i class="fas fa-gift floating"></i>
-                    </div>
-                    <h3>My Wish For Us</h3>
-                    <p>I hope we never stop discovering new things about each other and that our love continues to grow deeper with each passing year.</p>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Little Love Notes</h2>
+        <div class="love-notes">
+          <div class="note">
+            <div class="note-icon">
+              <i class="fas fa-star floating"></i>
             </div>
+            <h3>What I Love About You</h3>
+            <p>
+              Your smile that lights up my world, your kindness that touches
+              everyone around you, and the way you make even ordinary days feel
+              special.
+            </p>
+          </div>
+          <div class="note">
+            <div class="note-icon">
+              <i class="fas fa-memory floating"></i>
+            </div>
+            <h3>Favorite Memory</h3>
+            <p>
+              That rainy afternoon we spent talking for hours, not realizing how
+              much time had passed because we were so lost in each other.
+            </p>
+          </div>
+          <div class="note">
+            <div class="note-icon">
+              <i class="fas fa-gift floating"></i>
+            </div>
+            <h3>My Wish For Us</h3>
+            <p>
+              I hope we never stop discovering new things about each other and
+              that our love continues to grow deeper with each passing year.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="heart-beat">
-                <i class="fas fa-heart"></i>
-            </div>
-            <p class="footer-text">"The best thing to hold onto in life is each other." - Audrey Hepburn</p>
-            <p>Made with endless love for our 2 year anniversary</p>
-            <p>Every moment with you is a treasure</p>
+      <div class="container">
+        <div class="heart-beat">
+          <i class="fas fa-heart"></i>
         </div>
+        <p class="footer-text">
+          "The best thing to hold onto in life is each other." - Audrey Hepburn
+        </p>
+        <p>Made with endless love for our 2 year anniversary</p>
+        <p>Every moment with you is a treasure</p>
+      </div>
     </footer>
 
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page">
-        <i class="fas fa-chevron-up"></i>
+    <button
+      class="scroll-to-top"
+      id="scrollToTop"
+      aria-label="Scroll to top of page"
+    >
+      <i class="fas fa-chevron-up"></i>
     </button>
-</body>
-
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
