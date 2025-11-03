@@ -1290,12 +1290,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-[data-theme="dark"] .gallery-item,
-[data-theme="dark"] .popup-gallery-item {
-    background: rgba(30, 30, 30, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 header::before {
     content: '';
     position: absolute;
@@ -1337,4 +1331,5 @@ footer::before {
 footer > .container {
     position: relative;
     z-index: 2;
+
 }
