@@ -1119,6 +1119,3 @@ function initGalleryAndLightbox() {
     }
   })();
 }
-
-
-
