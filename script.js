@@ -363,7 +363,7 @@ function initMusicPlayer() {
   let isPlaying = true;
 
   const audio = new Audio();
-  audio.src = "November the 2nd.wav";
+  audio.src = "November the 2nd.aac";
   audio.loop = true;
 
   audio.play().catch((e) => {
@@ -1119,3 +1119,4 @@ function initGalleryAndLightbox() {
     }
   })();
 }
+
