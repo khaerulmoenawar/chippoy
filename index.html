@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff9fb">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="November the 2nd: our anniversary, our memories, and a love letter.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="November the 2nd">
+    <meta property="og:description" content="Our anniversary, our memories, and a love letter.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <script>try{var t=localStorage.getItem('anniversaryTheme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <noscript><style>section,.section-title,.note,.promise,.gallery-item,.memory-item,.love-letter,.letter-content p,.signature{opacity:1!important;transform:none!important}.typewriter-text{opacity:1!important;width:auto!important}</style></noscript>
     <meta
       name="description"
       content="Celebrating our beautiful love story since November 2, 2023. A journey of love, memories, and promises through two amazing years together."
@@ -13,13 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <link
       rel="stylesheet"
@@ -32,10 +36,11 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="cursor">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="cursor" aria-hidden="true">
       <div class="cursor-inner"></div>
     </div>
-    <div class="cursor-follower"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
 
     <button
       class="theme-toggle"
@@ -163,6 +168,7 @@
         </div>
       </div>
     </header>
+    <main id="main">
 
     <section id="memories">
       <div class="container">
@@ -465,6 +471,7 @@
       </div>
     </section>
 
+    </main>
     <footer>
       <div class="container">
         <div class="heart-beat">

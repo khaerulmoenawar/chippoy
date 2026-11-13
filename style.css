@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
 :root {
@@ -15,7 +14,7 @@
   --text: #5d2e46;
   --card-bg: #ffffff;
   --nav-bg: rgba(255, 255, 255, 0.9);
-  --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, background 0.5s ease, color 0.5s ease, border-color 0.5s ease, max-height 0.8s ease;
 }
 
 [data-theme="dark"] {
@@ -102,7 +101,7 @@ body {
     transform: translateY(0) rotate(0deg);
   }
   100% {
-    transform: translateY(-1000px) rotate(360deg);
+    transform: translate3d(0, -125vh, 0) rotate(360deg);
   }
 }
 
@@ -162,7 +161,8 @@ body {
 }
 
 header {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -347,8 +347,8 @@ section {
   padding: 120px 0;
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s ease;
-  background: var(--bg);
+  transition: opacity 1s ease, transform 1s ease;
+  background: transparent;
 }
 
 section.visible {
@@ -365,7 +365,7 @@ section.visible {
   position: relative;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .section-title.visible {
@@ -559,7 +559,7 @@ section.visible {
   margin-bottom: 25px;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .letter-content p.visible {
@@ -576,7 +576,7 @@ section.visible {
   font-family: "Dancing Script", cursive;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.8s ease 1s;
+  transition: opacity 0.8s ease 1s, transform 0.8s ease 1s;
 }
 
 .signature.visible {
@@ -1333,3 +1333,122 @@ footer > .container {
     z-index: 2;
 
 }
+
+
+/* ==========================================================================
+   SMOOTHER + LIGHTER LAYER
+   ========================================================================== */
+html { scroll-behavior: smooth; }
+@media (hover: hover) and (pointer: fine) { * { cursor: none; } }
+
+/* heart cursor: positioned with transform/translate only */
+.cursor, .cursor-follower, .click-effect { left: 0; top: 0; pointer-events: none; z-index: 40000; }
+.cursor, .cursor-follower { opacity: 0; }
+html.cursor-on .cursor, html.cursor-on .cursor-follower { opacity: 1; }
+.fx-particle { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 20001; will-change: transform, opacity; }
+
+/* glass: blur only where it matters (bars, buttons, popup). Cards get a frosted tint instead, which costs nothing */
+.note, .promise, .memory-content, .love-letter, .countdown-item, .lock-message, .gallery-item {
+  -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(255, 255, 255, 0.62);
+}
+[data-theme="dark"] .note, [data-theme="dark"] .promise, [data-theme="dark"] .memory-content,
+[data-theme="dark"] .love-letter, [data-theme="dark"] .countdown-item, [data-theme="dark"] .lock-message { background: rgba(32, 32, 32, 0.68); }
+footer::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
+header { background: transparent; }
+
+/* ambient hearts and orbs: start below the screen and rise (they used to start at the top and leave at once) */
+.heart { top: 100%; will-change: transform; }
+.bg-element { top: 100%; opacity: 0.09; will-change: transform; }
+.paused .heart, .paused .bg-element, .paused .floating, header.offscreen .heart { animation-play-state: paused; }
+
+/* nav underline: transform instead of width */
+.nav-links a::after { width: 100%; transform: scaleX(0); transform-origin: left; }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+/* scroll progress + memory-lane line that fills as you read */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 10050; pointer-events: none; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+.memory-lane .lane-fill { position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; margin-left: -3px; border-radius: 10px; z-index: 1; pointer-events: none; transform: scaleY(0); transform-origin: top; background: linear-gradient(180deg, var(--primary), var(--accent)); }
+.memory-lane::after { opacity: 0.35; }
+.countdown-sub { margin-top: 18px; text-align: center; font-size: 0.95rem; letter-spacing: 0.04em; opacity: 0.85; }
+
+/* popups and photo viewer */
+body.popup-open { overflow: hidden; }
+.popup-modal { height: 100vh; height: 100dvh; }
+.popup-content { max-height: 85vh; max-height: 85dvh; overscroll-behavior: contain; }
+.popup-gallery-item img, .popup-gallery-item video { width: 100%; height: 100%; object-fit: cover; }
+.popup-gallery-item img { opacity: 0; transition: opacity 0.7s ease, transform 0.6s ease; }
+.popup-gallery-item.loaded img { opacity: 1; }
+.popup-gallery-item.is-error img { display: none; }
+.popup-gallery-item.is-error::after { content: "\2764"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.2rem; color: rgba(255, 255, 255, 0.85); }
+.image-lightbox-overlay { position: fixed; inset: 0; z-index: 30000; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.88); opacity: 0; transition: opacity 0.26s ease; touch-action: pan-y; }
+.image-lightbox-overlay.visible { opacity: 1; }
+.image-lightbox-stage { display: grid; place-items: center; max-width: 100%; }
+.image-lightbox-media { max-width: 94vw; max-height: 88vh; max-height: 88dvh; object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
+.image-lightbox-close, .image-lightbox-nav { position: fixed; z-index: 30001; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.9); color: #333; font-size: 26px; line-height: 1; transition: transform 0.25s ease, background 0.25s ease; }
+.image-lightbox-close { top: 18px; right: 18px; font-size: 24px; }
+.image-lightbox-nav { top: 50%; margin-top: -22px; }
+.image-lightbox-nav.prev { left: 16px; }
+.image-lightbox-nav.next { right: 16px; }
+.image-lightbox-close:hover, .image-lightbox-nav:hover { transform: scale(1.1); background: #fff; }
+.image-lightbox-count { position: fixed; bottom: 18px; left: 0; right: 0; text-align: center; color: rgba(255, 255, 255, 0.85); font-size: 0.85rem; letter-spacing: 0.12em; z-index: 30001; pointer-events: none; }
+
+/* keyboard users + skip link */
+.skip-link { position: fixed; left: 12px; top: -60px; z-index: 50000; padding: 10px 16px; border-radius: 8px; background: var(--primary); color: #fff; transition: top 0.2s; }
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.gallery-item:focus-visible, .memory-content:focus-visible, .love-lock:focus-visible { outline-offset: 4px; border-radius: 14px; }
+
+/* theme switch: circular reveal */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+html.theme-vt *, html.theme-vt *::before, html.theme-vt *::after { transition: none !important; }
+
+/* phones and narrow windows (these rules used to be injected by the script) */
+@media (pointer: coarse), (max-width: 768px) {
+  * { cursor: auto !important; }
+  .cursor, .cursor-follower, .click-effect { display: none !important; }
+  header { height: auto; min-height: 0; padding: 60px 20px; }
+  h1 { font-size: 2.4rem; line-height: 1.15; }
+  .subtitle { font-size: 1rem; margin-bottom: 18px; }
+  .countdown-container { padding: 16px; }
+  .countdown-item { padding: 12px 10px; min-width: 64px; }
+  .gallery, .popup-gallery { grid-template-columns: 1fr; gap: 12px; }
+  .gallery-item, .popup-gallery-item { height: 180px; border-radius: 12px; }
+  .music-player { left: 12px; bottom: 12px; padding: 10px 12px; border-radius: 12px; }
+  .music-control, .theme-toggle, .popup-close, .scroll-to-top { min-width: 44px; min-height: 44px; }
+  .popup-content { padding: 18px; width: 94%; max-width: 720px; }
+  .love-letter { padding: 22px; border-radius: 14px; }
+  .animated-bg { opacity: 0.7; }
+  .nav-links { display: none; }
+  .memory-lane .lane-fill { left: 31px; margin-left: 0; }
+  .image-lightbox-nav { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  section, .section-title, .note, .promise, .gallery-item, .memory-item, .love-letter, .letter-content p, .signature { opacity: 1; transform: none; }
+  .typewriter-text { opacity: 1; width: auto; border-right: 0; }
+  .heart, .bg-element { display: none; }
+}
+
+/* popup box and photo viewer: calmer, more readable backgrounds */
+.popup-content { background: rgba(255, 255, 255, 0.92); }
+[data-theme="dark"] .popup-content { background: rgba(26, 26, 26, 0.94); }
+.image-lightbox-overlay { background: rgba(0, 0, 0, 0.94); }
+
+/* fixed bars and buttons: the blur behind them was re-computed on every scrolled frame, so they get a firmer tint instead */
+nav, .nav-container, .theme-toggle, .music-player, .scroll-to-top, .countdown-container {
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+nav, .nav-container { background: rgba(255, 255, 255, 0.95); }
+.countdown-container { background: rgba(255, 255, 255, 0.72); }
+.theme-toggle, .music-player, .scroll-to-top { background: rgba(255, 255, 255, 0.94); }
+[data-theme="dark"] nav, [data-theme="dark"] .nav-container { background: rgba(20, 20, 20, 0.95); }
+[data-theme="dark"] .countdown-container { background: rgba(32, 32, 32, 0.72); }
+[data-theme="dark"] .theme-toggle, [data-theme="dark"] .music-player, [data-theme="dark"] .scroll-to-top { background: rgba(34, 34, 34, 0.94); }
+.heart { will-change: auto; }
+section.offscreen * { animation-play-state: paused !important; }
+
+/* whole sections (some are 2,000px+ tall) no longer fade as one giant layer; their titles, cards and photos still reveal one by one */
+section { opacity: 1; transform: none; transition: none; }
