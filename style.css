@@ -1348,9 +1348,10 @@ html.cursor-on .cursor, html.cursor-on .cursor-follower { opacity: 1; }
 .fx-particle { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 20001; will-change: transform, opacity; }
 
 /* glass: blur only where it matters (bars, buttons, popup). Cards get a frosted tint instead, which costs nothing */
-.note, .promise, .memory-content, .love-letter, .countdown-item, .lock-message, .gallery-item {
+.note, .promise, .memory-content, .love-letter, .countdown-item, .lock-message {
   -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(255, 255, 255, 0.62);
 }
+.gallery-item { -webkit-backdrop-filter: none; backdrop-filter: none; }
 [data-theme="dark"] .note, [data-theme="dark"] .promise, [data-theme="dark"] .memory-content,
 [data-theme="dark"] .love-letter, [data-theme="dark"] .countdown-item, [data-theme="dark"] .lock-message { background: rgba(32, 32, 32, 0.68); }
 footer::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
