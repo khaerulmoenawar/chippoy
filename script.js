@@ -173,6 +173,25 @@ function initAmbientPause() {
   }
 }
 
+/* ---------- intro: title letters rise, countdown tiles pop in ---------- */
+function initIntro() {
+  const root = document.documentElement, h1 = $("header h1");
+  if (!h1 || REDUCE) { root.classList.remove("intro-pre"); return; }
+  const text = h1.textContent.trim();
+  h1.textContent = "";
+  const sr = document.createElement("span"); sr.className = "sr"; sr.textContent = text; h1.appendChild(sr);
+  text.split(" ").forEach((w, k, all) => {
+    const wd = document.createElement("span"); wd.className = "wd"; wd.setAttribute("aria-hidden", "true");
+    [...w].forEach((c) => { const ch = document.createElement("span"); ch.className = "ch"; ch.textContent = c; wd.appendChild(ch); });
+    h1.appendChild(wd);
+    if (k < all.length - 1) h1.appendChild(document.createTextNode(" "));
+  });
+  const E = "cubic-bezier(0.19, 1, 0.22, 1)";
+  $$("header h1 .ch").forEach((c, n) => c.animate([{ transform: "translateY(110%) rotate(6deg)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 1000, delay: 250 + n * 45, easing: E, fill: "backwards" }));
+  $$(".countdown-item").forEach((c, n) => c.animate([{ transform: "translateY(24px) scale(0.85)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 800, delay: 1100 + n * 90, easing: E, fill: "backwards" }));
+  root.classList.remove("intro-pre");
+}
+
 /* ---------- theme ---------- */
 function initThemeToggle() {
   const btn = $("#themeToggle"), root = document.documentElement, meta = $('meta[name="theme-color"]');
@@ -290,7 +309,14 @@ function initMusicPlayer() {
   const btn = $("#playPauseBtn"), info = $(".music-info");
   const audio = new Audio("November the 2nd.aac");
   audio.loop = true;
+  const player = $(".music-player");
+  if (info && !$(".eq")) {
+    const eq = document.createElement("span");
+    eq.className = "eq"; eq.setAttribute("aria-hidden", "true"); eq.innerHTML = "<i></i><i></i><i></i><i></i>";
+    info.before(eq);
+  }
   const set = (playing, text) => {
+    if (player) player.classList.toggle("playing", playing);
     btn.innerHTML = `<i class="fas fa-${playing ? "pause" : "play"}"></i>`;
     btn.setAttribute("aria-pressed", String(playing));
     if (info) info.textContent = `November the 2nd - ${text}`;
@@ -431,6 +457,13 @@ function initGalleryAndLightbox() {
     });
   }
   $$(".gallery-item").forEach((el, n) => {
+    const cover = (galleryAssets[el.id] || []).find((a) => a.type !== "video");
+    if (cover) {
+      const img = new Image();
+      img.className = "tile-cover"; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; img.src = cover.src;
+      img.addEventListener("load", () => el.classList.add("has-cover"));
+      el.prepend(img);
+    }
     el.setAttribute("role", "button"); el.tabIndex = 0; el.setAttribute("aria-label", `Open memories gallery ${n + 1}`);
     const open = () => { populate(el.id || "all-memories"); openPopup(popup, el); };
     el.addEventListener("click", open);
@@ -465,14 +498,27 @@ function initReveal() {
 /* ---------- countdown (Jakarta time, so it is right wherever you open it) ---------- */
 const JAKARTA = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jakarta", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hourCycle: "h23" });
 const shown = {};
-function setText(id, v) { if (shown[id] !== v) { shown[id] = v; const el = document.getElementById(id); if (el) el.textContent = v; } }
+function setText(id, v) {
+  if (shown[id] === v) return;
+  const first = shown[id] === undefined;
+  shown[id] = v;
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = v;
+  if (!first && !REDUCE) el.animate([{ transform: "translateY(-30%)", opacity: 0.2 }, { transform: "none", opacity: 1 }], { duration: 420, easing: "cubic-bezier(0.19,1,0.22,1)" });
+}
+const YEAR_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+function setYears(y) {
+  const w = YEAR_WORDS[y] || String(y);
+  $$("[data-years]").forEach((e) => { if (e.textContent !== w) e.textContent = w; });
+}
 function updateCountdown() {
   const n = {};
   JAKARTA.formatToParts(new Date()).forEach((p) => { if (p.type !== "literal") n[p.type] = +p.value; });
   let y = n.year - 2023, mo = n.month - 11, d = n.day - 2;
   if (d < 0) { d += new Date(Date.UTC(n.year, n.month - 1, 0)).getUTCDate(); mo--; }
   if (mo < 0) { mo += 12; y--; }
-  setText("years", y); setText("months", mo); setText("days", d); setText("hours", n.hour); setText("minutes", n.minute); setText("seconds", n.second);
+  setText("years", y); setYears(y); setText("months", mo); setText("days", d); setText("hours", n.hour); setText("minutes", n.minute); setText("seconds", n.second);
   const today = Date.UTC(n.year, n.month - 1, n.day);
   const total = Math.floor((today - Date.UTC(2023, 10, 2)) / 864e5);
   const ny = n.month > 11 || (n.month === 11 && n.day > 2) ? n.year + 1 : n.year;
@@ -499,14 +545,23 @@ function initScrollFx() {
   const bar = document.createElement("div"); bar.className = "scroll-progress"; bar.setAttribute("aria-hidden", "true");
   document.body.appendChild(bar);
   let fill = null;
-  if (lane) { fill = document.createElement("div"); fill.className = "lane-fill"; fill.setAttribute("aria-hidden", "true"); lane.appendChild(fill); }
+  let heart = null;
+  if (lane) {
+    fill = document.createElement("div"); fill.className = "lane-fill"; fill.setAttribute("aria-hidden", "true"); lane.appendChild(fill);
+    heart = document.createElement("div"); heart.className = "lane-heart"; heart.setAttribute("aria-hidden", "true"); heart.textContent = "\u2764"; lane.appendChild(heart);
+  }
   let busy = false;
   const update = () => {
     busy = false;
     const y = Math.max(0, scrollY), max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     bar.style.transform = `scaleX(${Math.min(1, y / max)})`;
     top.classList.toggle("active", y > 300);
-    if (fill) { const r = lane.getBoundingClientRect(); fill.style.transform = `scaleY(${Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height))})`; }
+    if (fill) {
+      const r = lane.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height));
+      fill.style.transform = `scaleY(${p})`;
+      heart.style.translate = `0 ${(p * r.height).toFixed(1)}px`;
+      heart.style.opacity = p > 0.004 && p < 0.996 ? "1" : "0";
+    }
   };
   addEventListener("scroll", () => { if (!busy) { busy = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener("resize", update, { passive: true });
@@ -515,6 +570,7 @@ function initScrollFx() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initIntro();
   initThemeToggle();
   initReveal();
   initCountdown();
