@@ -79,52 +79,52 @@ const memoryDetails = {
 
 const galleryAssets = {
   galleryTrigger: [
-    { type: "image", src: "kw1.jpg" },
-    { type: "image", src: "kw2.jpg" },
-    { type: "image", src: "kw3.jpg" },
-    { type: "image", src: "kw4.jpg" },
-    { type: "image", src: "kw5.jpg" },
-    { type: "image", src: "kw6.jpg" },
+    { type: "image", src: "kw1.avif" },
+    { type: "image", src: "kw2.avif" },
+    { type: "image", src: "kw3.avif" },
+    { type: "image", src: "kw4.avif" },
+    { type: "image", src: "kw5.avif" },
+    { type: "image", src: "kw6.avif" },
   ],
   galleryTrigger2: [
-    { type: "image", src: "mr1.jpg" },
-    { type: "image", src: "mr2.jpg" },
-    { type: "image", src: "mr3.jpg" },
-    { type: "image", src: "mr4.jpg" },
-    { type: "image", src: "mr5.jpg" },
-    { type: "image", src: "mr6.jpg" },
+    { type: "image", src: "mr1.avif" },
+    { type: "image", src: "mr2.avif" },
+    { type: "image", src: "mr3.avif" },
+    { type: "image", src: "mr4.avif" },
+    { type: "image", src: "mr5.avif" },
+    { type: "image", src: "mr6.avif" },
   ],
   galleryTrigger3: [
-    { type: "image", src: "lv1.jpg" },
-    { type: "image", src: "lv2.jpg" },
-    { type: "image", src: "lv3.jpg" },
-    { type: "image", src: "lv4.jpg" },
-    { type: "image", src: "lv5.jpg" },
-    { type: "image", src: "lv6.jpg" },
+    { type: "image", src: "lv1.avif" },
+    { type: "image", src: "lv2.avif" },
+    { type: "image", src: "lv3.avif" },
+    { type: "image", src: "lv4.avif" },
+    { type: "image", src: "lv5.avif" },
+    { type: "image", src: "lv6.avif" },
   ],
   galleryTrigger4: [
-    { type: "image", src: "pb1.jpg" },
-    { type: "image", src: "pb2.jpg" },
-    { type: "image", src: "pb3.jpg" },
-    { type: "image", src: "pb4.jpg" },
-    { type: "image", src: "pb5.jpg" },
-    { type: "image", src: "pb6.jpg" },
+    { type: "image", src: "pb1.avif" },
+    { type: "image", src: "pb2.avif" },
+    { type: "image", src: "pb3.avif" },
+    { type: "image", src: "pb4.avif" },
+    { type: "image", src: "pb5.avif" },
+    { type: "image", src: "pb6.avif" },
   ],
   galleryTrigger5: [
-    { type: "video", src: "vid1.mp4" },
-    { type: "video", src: "vid2.mp4" },
-    { type: "video", src: "vid3.mp4" },
-    { type: "video", src: "vid4.mp4" },
-    { type: "video", src: "vid5.mp4" },
-    { type: "video", src: "vid6.mp4" },
+    { type: "video", src: "vid1.webm" },
+    { type: "video", src: "vid2.webm" },
+    { type: "video", src: "vid3.webm" },
+    { type: "video", src: "vid4.webm" },
+    { type: "video", src: "vid5.webm" },
+    { type: "video", src: "vid6.webm" },
   ],
   galleryTrigger6: [
-    { type: "image", src: "fn1.jpg" },
-    { type: "image", src: "fn2.jpg" },
-    { type: "image", src: "fn3.jpg" },
-    { type: "image", src: "fn4.jpg" },
-    { type: "image", src: "fn5.jpg" },
-    { type: "image", src: "fn6.jpg" },
+    { type: "image", src: "fn1.avif" },
+    { type: "image", src: "fn2.avif" },
+    { type: "image", src: "fn3.avif" },
+    { type: "image", src: "fn4.avif" },
+    { type: "image", src: "fn5.avif" },
+    { type: "image", src: "fn6.avif" },
   ],
   "all-memories": [],
 };
@@ -375,6 +375,32 @@ function initPopups() {
   });
 }
 
+/* ---------- responsive media sources: AVIF/WebP/JPG and AV1 WebM/H.264 MP4 ---------- */
+function setImageSource(img, avifSrc) {
+  const stem = avifSrc.replace(/\.avif$/i, "");
+  const candidates = [`${stem}.avif`, `${stem}.webp`, `${stem}.jpg`];
+  let index = 0;
+  img.onerror = () => {
+    index += 1;
+    if (index < candidates.length) img.src = candidates[index];
+    else img.onerror = null;
+  };
+  img.src = candidates[index];
+}
+function setVideoSources(video, webmSrc) {
+  const mp4Src = webmSrc.replace(/\.webm$/i, ".mp4");
+  video.replaceChildren();
+  const webm = document.createElement("source");
+  webm.src = webmSrc;
+  // Do not hard-code codec strings: WebM may contain AV1, VP9, or VP8,
+  // and MP4 may use different valid H.264 profiles.
+  webm.type = "video/webm";
+  const mp4 = document.createElement("source");
+  mp4.src = mp4Src;
+  mp4.type = "video/mp4";
+  video.append(webm, mp4);
+}
+
 /* ---------- gallery + photo viewer (arrows, keys, swipe) ---------- */
 function openLightbox(list, start) {
   if ($(".image-lightbox-overlay")) return;
@@ -398,14 +424,14 @@ function openLightbox(list, start) {
   document.body.appendChild(overlay); document.body.classList.add("popup-open");
   function show(dir) {
     const a = list[i]; let m;
-    if (a.type === "video") { m = document.createElement("video"); m.src = a.src; m.controls = true; m.autoplay = true; m.playsInline = true; }
-    else { m = new Image(); m.decoding = "async"; m.alt = a.alt || "Our memory"; m.src = a.src; }
+    if (a.type === "video") { m = document.createElement("video"); setVideoSources(m, a.src); m.controls = true; m.autoplay = true; m.playsInline = true; m.load(); }
+    else { m = new Image(); m.decoding = "async"; m.alt = a.alt || "Our memory"; setImageSource(m, a.src); }
     m.className = "image-lightbox-media";
     stage.replaceChildren(m);
     if (!REDUCE) m.animate([{ opacity: 0, transform: `translateX(${dir * 28}px) scale(0.98)` }, { opacity: 1, transform: "none" }], { duration: 320, easing: "cubic-bezier(0.2,0.8,0.2,1)" });
     count.textContent = `${i + 1} / ${list.length}`;
     prev.hidden = next.hidden = list.length < 2;
-    [1, -1].forEach((d) => { const n = list[(i + d + list.length) % list.length]; if (n.type !== "video") new Image().src = n.src; });
+    [1, -1].forEach((d) => { const n = list[(i + d + list.length) % list.length]; if (n.type !== "video") setImageSource(new Image(), n.src); });
   }
   function go(d) { i = (i + d + list.length) % list.length; show(d); }
   function close() {
@@ -443,9 +469,9 @@ function initGalleryAndLightbox() {
       const cell = document.createElement("div");
       cell.className = "popup-gallery-item";
       let m;
-      if (a.type === "video") { m = document.createElement("video"); m.src = a.src; m.controls = true; m.preload = "metadata"; m.playsInline = true; }
+      if (a.type === "video") { m = document.createElement("video"); setVideoSources(m, a.src); m.controls = true; m.preload = "metadata"; m.playsInline = true; m.load(); }
       else {
-        m = new Image(); m.loading = "lazy"; m.decoding = "async"; m.alt = a.alt || "Our beautiful memory"; m.src = a.src;
+        m = new Image(); m.loading = "lazy"; m.decoding = "async"; m.alt = a.alt || "Our beautiful memory"; setImageSource(m, a.src);
         m.addEventListener("load", () => cell.classList.add("loaded"));
         m.addEventListener("error", () => cell.classList.add("is-error"));
       }
@@ -460,7 +486,7 @@ function initGalleryAndLightbox() {
     const cover = (galleryAssets[el.id] || []).find((a) => a.type !== "video");
     if (cover) {
       const img = new Image();
-      img.className = "tile-cover"; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; img.src = cover.src;
+      img.className = "tile-cover"; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; setImageSource(img, cover.src);
       img.addEventListener("load", () => el.classList.add("has-cover"));
       el.prepend(img);
     }
